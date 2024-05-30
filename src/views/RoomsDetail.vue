@@ -118,7 +118,7 @@
             <div class="attractions my-10">
                 <div class="flex gap-5 w-10/12 mx-auto">
                     <div class="property w-8/12">
-                        <img src="../assets/pearlygates/mini-suite.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <img src="../assets/pearlygates/Mini-suite.webp" alt="" class="w-full rounded-lg h-92 object-cover">
                     </div>
                     <div class="property w-4/12">
                         <div class="detail p-2 mb-3">
