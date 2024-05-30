@@ -11,9 +11,9 @@
         
         <template>
             <footer class="relative bg-cyan-950 text-white">
-                <div class="footer-container p-4 md:p-20 md:flex md:justify-between">
+                <div class="footer-container text-sm p-4 md:p-20 md:flex md:justify-between">
                     <div class="address p-2 md:w-4/12 md:p-4">
-                        <p class="p-1 font-bold text-xl">PERLY GATE RESIDENCE</p> 
+                        <p class="p-1 font-bold text-lg">PERLY GATE RESIDENCE</p> 
                         <p class="p-1">120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
                         <p class="p-1">T +23470876680366</p>
                         <p class="p-1">E reservations@perlygateresidence.com</p>
@@ -30,10 +30,10 @@
                     <div class="social-newsletter md:text-center p-2 md:w-4/12 md:p-4">
                         <div class="social">
                             
-                            <a href="https://www.facebook.com/perlygateresidence?mibextid=ZbWKwL" class="mx-4 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
-                            <!-- <a href="" class="mx-4 text-xl"><FontAwesomeIcon :icon='faTwitter'/></a> -->
-                            <a href="https://www.instagram.com/perlygateresidence?igsh=YzljYTk1ODg3Zg==" class="mx-4 text-xl"><FontAwesomeIcon :icon='faInstagram'/></a>
-                            <a href="https://wa.me/2347086680366" class="mx-4 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
+                            <a href="https://www.facebook.com/perlygateresidence?mibextid=ZbWKwL" class="mx-2 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
+                            <!-- <a href="" class="mx-2 text-xl"><FontAwesomeIcon :icon='faTwitter'/></a> -->
+                            <a href="https://www.instagram.com/perlygateresidence?igsh=YzljYTk1ODg3Zg==" class="mx-2 text-xl"><FontAwesomeIcon :icon='faInstagram'/></a>
+                            <a href="https://wa.me/2347086680366" class="mx-2 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
                         </div>
                         <div class="newsletter">
                             <p class="mt-8">Subscribe to our Newsletter</p>
