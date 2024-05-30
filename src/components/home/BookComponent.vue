@@ -17,13 +17,13 @@
                     <form class="text-center">
                         <label class="relative">
                             <input type="date" name="arrival" id="arrival" class="p-3 md:mx-4 md:inline rounded block w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                            <span class="absolute top-5 -left-40 md:left-10 md:top-0 font-bold font-sans text-white">Arrival</span>
+                            <span class="absolute top-5 -left-32 md:left-10 md:top-0 font-bold font-sans text-white">Arrival</span>
                             <span class="absolute top-5 right-5 md:top-0 md:right-7  text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
                         </label>
                         
                         <label class="relative">
                             <input type="date" name="departure" id="departure" class="p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                            <span class="absolute top-5 -left-40 md:left-10 md:top-0 font-bold font-sans text-white">Departure</span>
+                            <span class="absolute top-5 -left-32 md:left-10 md:top-0 font-bold font-sans text-white">Departure</span>
                             <span class="absolute top-5 right-5 md:top-0 md:right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
                         </label>
                         
@@ -45,8 +45,8 @@
                     </form>
                 </div>
             </div>
-            <div class="map-location w-11/12 mx-auto my-10 md:flex md:justify-center md:items-start md:gap-10 md:my-20">
-                <div class="map md:w-6/12">
+            <div class="map-location p-1 w-11/12 mx-auto my-5 md:flex md:justify-center md:items-start md:gap-10 md:my-20">
+                <div class="map mb-5 md:w-6/12">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.287174946338!2d7.906446908147893!3d5.057126238448417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d577ad2c61da3%3A0x35de29cdcd1a2bb1!2sPerly%20Gate%20Residence!5e0!3m2!1sen!2sng!4v1716981503218!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full md:h-72"></iframe>
                 </div>
                 <div class="location">

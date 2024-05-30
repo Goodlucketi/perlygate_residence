@@ -11,15 +11,15 @@
         
         <template>
             <footer class="relative bg-cyan-950 text-white">
-                <div class="footer-container p-6 md:p-20 md:flex md:justify-between">
-                    <div class="address md:w-4/12 p-4">
+                <div class="footer-container p-4 md:p-20 md:flex md:justify-between">
+                    <div class="address p-2 md:w-4/12 md:p-4">
                         <p class="p-1 font-bold text-xl">PERLY GATE RESIDENCE</p> 
                         <p class="p-1">120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
                         <p class="p-1">T +23470876680366</p>
                         <p class="p-1">E reservations@perlygateresidence.com</p>
                     </div>
 
-                    <div class="links md:w-4/12 p-4">
+                    <div class="links p-2 md:w-4/12 md:p-4">
                         <li class="md:pl-28 my-2 list-none transition-all duration-1000 hover:underline"><router-link to="/">HOME</router-link></li>
                         <li class="md:pl-28 my-2 list-none transition-all duration-1000 hover:underline"><router-link to="/rooms">ROOMS</router-link></li>
                         <li class="md:pl-28 my-2 list-none transition-all duration-1000 hover:underline"><router-link to="/gallery">GALLERY</router-link></li>
@@ -27,7 +27,7 @@
                         <li class="md:pl-28 my-2 list-none transition-all duration-1000 hover:underline"><router-link to="/contact">CONTACT US</router-link></li>
                         
                     </div>
-                    <div class="social-newsletter md:text-center md:w-4/12 p-4">
+                    <div class="social-newsletter md:text-center p-2 md:w-4/12 md:p-4">
                         <div class="social">
                             
                             <a href="https://www.facebook.com/perlygateresidence?mibextid=ZbWKwL" class="mx-4 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
