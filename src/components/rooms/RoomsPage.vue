@@ -44,7 +44,7 @@
 
                 <div class="room flex justify-center gap-5 items-center my-5">
                     <div class="room-img w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000">
-                        <img src="../../assets/pearlygates/mini-suite.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
+                        <img src="../../assets/pearlygates/Mini-suite.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
                     </div>
                     <div class="room-txt w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Mini Suite</p>
