@@ -1,0 +1,117 @@
+<script setup>
+    import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+    register();
+
+</script>
+
+<template>
+    <main class="my-20 relative">
+        <h2 class="text-center text-3xl text-cyan-950 font-bold my-12">Our Rooms</h2>
+        <swiper-container slides-per-view="auto" space-between="50" speed="500" loop="true" navigation="true" autoplay-delay="3500" centered-slides="true" class="w-10/12 mx-auto">
+            <swiper-slide class="flex justify-center items-center gap-10 w-10/12">
+                <div class="img-slide w-6/12 ">
+                    <img src="../../assets/pearlygates/classic-plus.webp" alt="Hero slider" class="object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3"> Classic Plus</p>
+                    <p class="mb-10">
+                        Featuring free toiletries, this room includes a private bathroom. The air-conditioned room features a flat-screen TV, a tea, and coffee maker, and a wardrobe.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+
+            <swiper-slide class="flex justify-center items-center gap-10 flex-row-reverse w-10/12">
+                <div class="img-slide w-6/12">
+                    <img src="../../assets/pearlygates/luxury.webp" alt="Hero slider" class=" object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3"> Luxury</p>
+                    <p class="mb-10">
+                        Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+
+            <swiper-slide class="flex justify-center items-center gap-10 w-10/12">
+                <div class="img-slide w-6/12 ">
+                    <img src="../../assets/pearlygates/Mini-suite.webp" alt="Hero slider" class=" object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3">Mini Suite</p>
+                    <p class="mb-10">
+                        Featuring free toiletries, this mini suite includes a private bathroom. The air-conditioned room features a flat-screen TV, a tea, and coffee maker, and a wardrobe.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+
+            <swiper-slide class="flex justify-center items-center gap-10 flex-row-reverse w-10/12">
+                <div class="img-slide w-6/12">
+                    <img src="../../assets/pearlygates/suite.webp" alt="Hero slider" class=" object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3">Suite</p>
+                    <p class="mb-10">
+                        The air-conditioned suite has 1 bedroom and 1 bathroom with a shower and slippers. The suite features a tea and coffee maker, a dining area, a wardrobe, a flat-screen TV, as well as pool views.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+
+            <swiper-slide class="flex justify-center items-center gap-10 w-10/12">
+                <div class="img-slide w-6/12">
+                    <img src="../../assets/pearlygates/classic.webp" alt="Hero slider" class="object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3">Classic</p>
+                    <p class="mb-10">
+                        Featuring free toiletries, this room includes a private bathroom. The air-conditioned room features a flat-screen TV, a tea, and coffee maker, and a wardrobe.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+
+            <swiper-slide class="flex justify-center items-center gap-10 flex-row-reverse w-10/12">
+                <div class="img-slide w-6/12">
+                    <img src="../../assets/pearlygates/hotel_128.webp" alt="Hero slider" class=" object-cover rounded-xl h-80">
+                </div>
+                <div class="text-slide w-6/12">
+                    <p class="font-bold text-2xl text-cyan-950 mb-3">Classic Plus</p>
+                    <p class="mb-10">
+                        Featuring free toiletries, this room includes a private bathroom. The air-conditioned room features a flat-screen TV, a tea, and coffee maker, and a wardrobe.
+                    </p>
+                    <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
+                </div>
+                
+            </swiper-slide>
+    </swiper-container>
+    <hr class="w-8/12 mx-auto h-1 bg-slate-400 my-10">
+    </main>
+</template>
+
+<style scoped>
+   
+
+   swiper-container::part(button-next), swiper-container::part(button-prev) {
+        color: rgb(3, 20, 56);
+        padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    swiper-container::part(button-next) {
+        right: 0;
+    }
+    swiper-container::part(button-prev) {
+        left: 0;
+    }
+   
+   
+</style>
