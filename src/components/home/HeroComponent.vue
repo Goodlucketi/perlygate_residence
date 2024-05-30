@@ -20,9 +20,9 @@ const showCalendar = (event) => {
 </script>
 
 <template>
-  <header class="relative h-screen">
-    <swiper-container slides-per-view="1" speed="500" loop="true" pagination="true" autoplay-delay="2500" centered-slides="true">
-      <swiper-slide>
+  <header class="relative h-screen bg-slate-500">
+    <swiper-container slides-per-view="1" speed="500" loop="true" pagination="true" autoplay-delay="4000" centered-slides="true" class="border w-full">
+      <swiper-slide class="border w-screen">
         <img src="../../assets/pearlygates/hero1.webp" alt="Hero slider" class="w-full h-screen object-cover">
       </swiper-slide>
 
@@ -40,7 +40,7 @@ const showCalendar = (event) => {
     </swiper-container>
 
     <div class="overlay p-10 text-center absolute top-0 h-screen z-10 w-full text-white bg-cyan-950/50">
-      <h1 class="text-white mt-60 text-6xl font-thin tracking-widest">WELCOME TO PERLYGATES RESIDENCE</h1>
+      <h1 class="text-white mt-40 md:mt-60 text-5xl md:text-6xl font-thin tracking-widest">WELCOME TO PERLYGATES RESIDENCE</h1>
       <p class="text-white text-2xl my-5 italic">Chill and Relax</p>
       
       
@@ -53,7 +53,7 @@ const showCalendar = (event) => {
       </p>
     </div>
 
-    <div class="book z-20 absolute w-full bottom-0 bg-slate-950/75 p-12">
+    <div class=" hidden md:block book z-20 absolute w-full bottom-0 bg-slate-950/75 p-12">
       <div class="bookform mx-auto w-11/12">
         <form class="text-center">
           <label class="relative">
@@ -93,11 +93,12 @@ const showCalendar = (event) => {
 <style scoped>
   swiper-container::part(pagination){
       position: absolute;
-      bottom: 150px;
+      bottom: 200px;
+      z-index: 100;
   }
 
   swiper-container::part(bullet-active){
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(250, 157, 35);
   }
 /* Custom styles to hide the placeholder text */
   .no-placeholder::-webkit-datetime-edit-fields-wrapper {

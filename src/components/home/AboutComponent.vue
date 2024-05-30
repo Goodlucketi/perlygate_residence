@@ -10,11 +10,11 @@
 </script>
 
 <template>
-    <main class="mt-20 relative p-10 h-96">
-        <h2 class="text-center text-3xl text-white font-bold my-12 ">About Us</h2>
-        <div class="about-container mx-auto w-10/12 text-justify">
+    <main class="mt-10 relative p-2 md:p-10 h-auto">
+        <h2 class="text-center text-3xl text-white font-bold my-5 md:my-12 ">About Us</h2>
+        <div class="about-container mx-auto w-11/12 ">
             
-            <div class="about-txt p-4 text-lg mb-10">
+            <div class="about-txt md:text-lg mb-10">
                 <p>Perly Gate Residence offers accommodation in Uyo. The 5-star hotel features a patio and air-conditioned rooms with free WiFi and private bathrooms. The hotel includes an outdoor swimming pool with pool views, and guests can dine at the restaurant or drink at the bar.
                 <br>
                 The hotel's rooms include a desk and a flat-screen television. Perly Gate Residence rooms include bed linens and towels.

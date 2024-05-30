@@ -9,45 +9,45 @@
 </script>
 
 <template>
-    <main class="my-20 relative">
+    <main class="my-10 md:my-20 relative">
         <div class="book-container mx-auto">
-            <div class="book bg-orange-600 p-10">
+            <div class="book bg-orange-600 p-6 md:p-10">
                 <h2 class="text-center text-3xl text-white font-bold my-5 ">Book Now</h2>
                 <div class="bookform mx-auto">
                     <form class="text-center">
-                    <label class="relative">
-                        <input type="date" name="arrival" id="arrival" class="p-3 mx-4 rounded w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                        <span class="absolute top-0 left-9 font-bold font-sans text-white">Arrival</span>
-                        <span class="absolute top-0 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
-                    </label>
-                    
-                    <label class="relative">
-                        <input type="date" name="departure" id="departure" class="p-3 mx-4 rounded w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                        <span class="absolute top-0 left-9 font-bold font-sans text-white">Departure</span>
-                        <span class="absolute top-0 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
-                    </label>
-                    
-                    <label class="relative">
-                        <select name="guests" id="guests" class="p-3 mx-4 rounded w-2/12 bg-slate-900/25 text-white border rounded" >
-                        <option value="1">1 guest</option>
-                        <option value="2">2 guests</option>
-                        <option value="3">3 guests</option>
-                        <option value="4">4 guests</option>
-                        <option value="5">5 guests</option>
-                        <option value="6">6 guests</option>
-                        <option value="7">7 guests</option>
-                        <option value="8">8 guests</option>
-                        </select>
-                        <span class="absolute top-0 right-6 text-white"><FontAwesomeIcon :icon="faUser"/></span>
-                    </label>
-                    
-                    <input type="submit" value="Book >" class="p-3 mx-4 rounded w-3/12 bg-orange-900 text-slate-100 font-bold transition-all duration-500 hover:bg-slate-100 hover:text-orange-900">
+                        <label class="relative">
+                            <input type="date" name="arrival" id="arrival" class="p-3 md:mx-4 md:inline rounded block w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+                            <span class="absolute top-5 -left-40 md:left-10 md:top-0 font-bold font-sans text-white">Arrival</span>
+                            <span class="absolute top-5 right-5 md:top-0 md:right-7  text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
+                        </label>
+                        
+                        <label class="relative">
+                            <input type="date" name="departure" id="departure" class="p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+                            <span class="absolute top-5 -left-40 md:left-10 md:top-0 font-bold font-sans text-white">Departure</span>
+                            <span class="absolute top-5 right-5 md:top-0 md:right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
+                        </label>
+                        
+                        <label class="relative">
+                            <select name="guests" id="guests" class="no-arrow p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-2/12 bg-slate-900/25 text-white border rounded " >
+                            <option value="1">1 guest</option>
+                            <option value="2">2 guests</option>
+                            <option value="3">3 guests</option>
+                            <option value="4">4 guests</option>
+                            <option value="5">5 guests</option>
+                            <option value="6">6 guests</option>
+                            <option value="7">7 guests</option>
+                            <option value="8">8 guests</option>
+                            </select>
+                            <span class="absolute top-5 right-5 md:top-0 md:right-7 text-white"><FontAwesomeIcon :icon="faUser"/></span>
+                        </label>
+                        
+                        <input type="submit" value="Book >" class="p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-3/12 bg-orange-900 text-slate-100 font-bold transition-all duration-500 hover:bg-slate-100 hover:text-orange-900">
                     </form>
                 </div>
             </div>
-            <div class="map-location flex justify-center items-start gap-10 my-20">
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.287174946338!2d7.906446908147893!3d5.057126238448417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d577ad2c61da3%3A0x35de29cdcd1a2bb1!2sPerly%20Gate%20Residence!5e0!3m2!1sen!2sng!4v1716981503218!5m2!1sen!2sng" width="550" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-location w-11/12 mx-auto my-10 md:flex md:justify-center md:items-start md:gap-10 md:my-20">
+                <div class="map md:w-6/12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.287174946338!2d7.906446908147893!3d5.057126238448417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d577ad2c61da3%3A0x35de29cdcd1a2bb1!2sPerly%20Gate%20Residence!5e0!3m2!1sen!2sng!4v1716981503218!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full md:h-72"></iframe>
                 </div>
                 <div class="location">
                     <div class="address mb-10">
@@ -90,4 +90,10 @@
   .no-placeholder::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
+
+.no-arrow{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
 </style>

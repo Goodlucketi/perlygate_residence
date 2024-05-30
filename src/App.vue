@@ -10,14 +10,14 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header class="bg-cyan-950 p-4 font-mono fixed top-0 left-0 z-20 w-full md:p-2">
-    <nav class="w-10/12 mx-auto flex justify-between items-center">
-      <div class="nav-logo">
-        <img src="./assets/pearlygates/logo-removebg-preview.png" alt="logo" class="w-6/12 md:w-10/12 lg:w-full">
+    <nav class="w-10/12 mx-auto flex justify-between items-center gap-">
+      <div class="nav-logo w-2/12 md:w-4/12">
+        <img src="./assets/pearlygates/logo-removebg-preview.png" alt="logo" class="">
       </div>
       <div class="links">
         <div class="contact flex items-center justify-start md:justify-end gap-5">
           <p class="text-white p-2"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone" class="bg-slate-800 p-3 rounded-full md:border-0 md:p-0 md:bg-transparent"/> <span class="hidden md:inline">+23470876680366</span> </a></p>
-          <button class="rounded-full bg-orange-600 p-3 text-white md:p-4">BOOK NOW</button>
+          <button class="rounded-full bg-orange-600 p-2 text-white md:p-4">BOOK NOW</button>
         </div>
         <div class="nav-links md:flex md:items-center text-white md:gap-8 mt-5 hidden md:block">
           <router-link to="/">HOME</router-link>
