@@ -20,7 +20,7 @@ const showCalendar = (event) => {
 </script>
 
 <template>
-  <header class="relative">
+  <header class="relative h-screen">
     <swiper-container slides-per-view="1" speed="500" loop="true" pagination="true" autoplay-delay="2500" centered-slides="true">
       <swiper-slide>
         <img src="../../assets/pearlygates/hero1.webp" alt="Hero slider" class="w-full h-screen object-cover">

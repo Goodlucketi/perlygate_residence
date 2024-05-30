@@ -33,7 +33,7 @@
                             <a href="https://www.facebook.com/perlygateresidence?mibextid=ZbWKwL" class="mx-4 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
                             <a href="" class="mx-4 text-xl"><FontAwesomeIcon :icon='faTwitter'/></a>
                             <a href="https://www.instagram.com/perlygateresidence?igsh=YzljYTk1ODg3Zg==" class="mx-4 text-xl"><FontAwesomeIcon :icon='faInstagram'/></a>
-                            <a href="" class="mx-4 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
+                            <a href="https://wa.me/2347086680366" class="mx-4 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
                         </div>
                         <div class="newsletter">
                             <p class="mt-8">Subscribe to our Newsletter</p>
