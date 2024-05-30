@@ -5,7 +5,7 @@
     
     import { faBath } from '@fortawesome/free-solid-svg-icons/faBath'
     import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee';
-    import { faWifi } from '@fortawesome/free-solid-svg-icons/faWIfi';
+    import { faWifi } from '@fortawesome/free-solid-svg-icons/faWifi';
    
     const selectedDate = ref('')
     const showCalendar = (event) => {
