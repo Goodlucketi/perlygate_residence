@@ -6,13 +6,28 @@ import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar'
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser'
 
-
+import { onMounted } from 'vue'
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
 // register Swiper custom elements
 register();
 
+const breakpoints = {
+    740: {
+        slidesPerView: 1,
+    },
+    768: {
+        slidesPerView: 1,
+    },
+    1024: {
+        slidesPerView: 1,
+    },
+}
 
+onMounted(() => {
+    const swiperContainer = document.querySelector('swiper-container');
+    swiperContainer.breakpoints = breakpoints;
+});
 const selectedDate = ref('')
 const showCalendar = (event) => {
   event.target.showPicker()
@@ -20,9 +35,9 @@ const showCalendar = (event) => {
 </script>
 
 <template>
-  <header class="relative h-screen bg-slate-500">
-    <swiper-container slides-per-view="1" speed="500" loop="true" pagination="true" autoplay-delay="4000" centered-slides="true" class="border w-full">
-      <swiper-slide class="border w-screen">
+  <header class="relative h-screen md:w-full">
+    <swiper-container slides-per-view="1" speed="500" loop="true" pagination="true" autoplay-delay="4000" centered-slides="true" class="">
+      <swiper-slide>
         <img src="../../assets/pearlygates/hero1.webp" alt="Hero slider" class="w-full h-screen object-cover">
       </swiper-slide>
 
@@ -93,7 +108,7 @@ const showCalendar = (event) => {
 <style scoped>
   swiper-container::part(pagination){
       position: absolute;
-      bottom: 200px;
+      bottom: 180px;
       z-index: 100;
   }
 

@@ -8,7 +8,7 @@
 <template>
     <main class="mt-10 md:my-20 relative">
         <h2 class="text-center text-3xl text-cyan-950 font-bold my-12">Our Rooms</h2>
-        <swiper-container slides-per-view="auto" space-between="50" speed="500" loop="true" navigation="true" autoplay-delay="3500" centered-slides="true" class="w-10/12 mx-auto">
+        <swiper-container slides-per-view="auto" space-between="50" speed="500" loop="true" navigation="true" autoplay-delay="3500" centered-slides="true" class="w-11/12 mx-auto">
             <swiper-slide class=" md:flex md:justify-center md:items-center gap-10 md:w-10/12">
                 <div class="img-slide mb-5 md:w-6/12 ">
                     <img src="../../assets/pearlygates/classic-plus.webp" alt="Hero slider" class="object-cover rounded-xl h-80">
