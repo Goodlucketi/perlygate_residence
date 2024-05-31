@@ -14,20 +14,20 @@
             <div class="book bg-orange-600 p-6 md:p-10">
                 <h2 class="text-center text-3xl text-white font-bold my-5 ">Book Now</h2>
                 <div class="bookform mx-auto">
-                    <form class="text-center">
-                        <label class="relative">
+                    <form action="https://app.thebookingbutton.com/properties/perlygateresidencedirect" method="get" class="text-center">
+                        <label class="relative block md:inline">
                             <input type="date" name="arrival" id="arrival" class="p-3 md:mx-4 md:inline rounded block w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                            <span class="absolute top-5 -left-32 md:left-10 md:top-0 font-bold font-sans text-white">Arrival</span>
+                            <span class="absolute top-5 left-3 md:left-7 md:top-0 font-bold font-sans text-white">Arrival</span>
                             <span class="absolute top-5 right-5 md:top-0 md:right-7  text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
                         </label>
                         
-                        <label class="relative">
+                        <label class="relative block md:inline">
                             <input type="date" name="departure" id="departure" class="p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                            <span class="absolute top-5 -left-32 md:left-10 md:top-0 font-bold font-sans text-white">Departure</span>
+                            <span class="absolute top-5 left-3 md:left-7 md:top-0 font-bold font-sans text-white">Departure</span>
                             <span class="absolute top-5 right-5 md:top-0 md:right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
                         </label>
                         
-                        <label class="relative">
+                        <label class="relative block md:inline">
                             <select name="guests" id="guests" class="no-arrow p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-2/12 bg-slate-900/25 text-white border rounded " >
                             <option value="1">1 guest</option>
                             <option value="2">2 guests</option>

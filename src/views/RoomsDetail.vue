@@ -3,9 +3,8 @@
     import FooterComponent from '@/components/home/FooterComponent.vue';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     
-    import { faBath } from '@fortawesome/free-solid-svg-icons/faBath'
-    import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee';
-    import { faWifi } from '@fortawesome/free-solid-svg-icons/faWifi';
+    import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar'
+    import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
    
     const selectedDate = ref('')
     const showCalendar = (event) => {
@@ -35,21 +34,21 @@
         
         <div class="bg-slate-200 rounded-md py-4 md:px-10 md:py-7 w-10/12 mx-auto">
             <div class="bookform mx-auto w-11/12">
-                <form class="text-center relative">
-                <label class="relative">
-                    <input type="date" name="arrival" id="arrival" class="p-3 mb-2 md:mx-4 rounded block w-full md:w-2/12 no-placeholder bg-white border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                    <span class="absolute top-4 -left-36 font-bold text-slate-600 font-mono">Arrival</span>
-                    <span class="absolute top- right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
+                <form method="https://app.thebookingbutton.com/properties/perlygateresidencedirect" class="text-center relative">
+                <label class="relative block md:inline">
+                    <input type="date" name="arrival" id="arrival" class="p-3 mb-2 md:mx-4 rounded block md:inline w-full md:w-2/12 no-placeholder bg-white border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+                    <span class="absolute top-4 left-3 md:top-0 md:left-7 font-bold text-slate-600 font-mono">Arrival</span>
+                    <span class="absolute top-4 right-5 md:top-0 md:right-7 text-slate-600"><FontAwesomeIcon :icon="faCalendar"/></span>
                 </label>
                 
-                <label class="relative">
-                    <input type="date" name="departure" id="departure" class="p-3 mb-2 md:mx-4 rounded block w-full md:w-2/12 no-placeholder bg-white border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-                    <span class="absolute top-4 -left-36 font-bold font-mono text-slate-600">Departure</span>
-                    <span class="absolute top-0 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
+                <label class="relative block md:inline">
+                    <input type="date" name="departure" id="departure" class="p-3 mb-2 md:mx-4 rounded block md:inline w-full md:w-2/12 no-placeholder bg-white border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+                    <span class="absolute top-4 left-3 md:top-0 md:left-7 font-bold font-mono text-slate-600">Departure</span>
+                    <span class="absolute top-4 right-5 md:top-0 md:right-7 text-slate-600"><FontAwesomeIcon :icon="faCalendar"/></span>
                 </label>
                 
-                <label class="relative">
-                    <select name="guests" id="guests" class="no-arrow p-3 mb-2 md:mx-4 rounded block w-full md:w-2/12 bg-white text-slate-600 border font-mono rounded" >
+                <label class="relative block md:inline">
+                    <select name="guests" id="guests" class="no-arrow p-3 mb-2 md:mx-4 rounded block md:inline w-full md:w-2/12 bg-white text-slate-600 border font-mono rounded" >
                     <option value="1">1 guest</option>
                     <option value="2">2 guests</option>
                     <option value="3">3 guests</option>
@@ -59,10 +58,10 @@
                     <option value="7">7 guests</option>
                     <option value="8">8 guests</option>
                     </select>
-                    <span class="absolute top-0 right-6 text-white"><FontAwesomeIcon :icon="faUser"/></span>
+                    <span class="absolute top-3 right-5 md:top-0 md:right-7 text-slate-600"><FontAwesomeIcon :icon="faUser"/></span>
                 </label>
                 
-                <input type="submit" value="Book >" class="p-3 mt-4 md:mx-4 rounded block w-full md:w-3/12 bg-orange-500 text-white">
+                <input type="submit" value="Book >" class="p-3 mt-4 md:mx-4 rounded block md:inline w-full md:w-3/12 bg-orange-500 text-white">
                 </form>
             </div>
         </div>
@@ -70,7 +69,7 @@
         <div v-if="activeTab === 'tab1'">
             <div class="properties my-16">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property :w-8/12">
+                    <div class="property md:w-8/12">
                         <img src="../assets/pearlygates/luxury.webp" alt="" class="w-full rounded-lg h-92 object-cover">
                     </div>
                     <div class="property md:w-4/12">
