@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header class="bg-cyan-950 p-4 font-mono fixed top-0 left-0 z-20 w-full md:p-2">
     <nav class="w-10/12 mx-auto flex justify-between items-center gap-">
       <div class="nav-logo w-2/12 md:w-4/12">
-        <img src="./assets/pearlygates/logo-removebg-preview.png" alt="logo" class="">
+        <router-link to="/"><img src="./assets/pearlygates/logo-removebg-preview.png" alt="logo" class=""></router-link>
       </div>
       <div class="links">
         <div class="contact flex items-center justify-start md:justify-end gap-5">

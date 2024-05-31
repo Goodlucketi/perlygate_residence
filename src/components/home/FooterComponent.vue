@@ -11,7 +11,7 @@
         
         <template>
             <footer class="relative bg-cyan-950 text-white">
-                <div class="footer-container text-sm p-4 md:p-20 md:flex md:justify-between">
+                <div class="footer-container text-sm p-4 md:p-10 md:flex md:justify-between">
                     <div class="address p-2 md:w-4/12 md:p-4">
                         <p class="p-1 font-bold text-lg">PERLY GATE RESIDENCE</p> 
                         <p class="p-1">120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    

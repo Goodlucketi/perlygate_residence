@@ -11,14 +11,14 @@
 </script>
 
 <template>
-    <main class="mt-20 relative">
+    <main class="mt-10 md:mt-20 relative">
         <div class="contact-container mx-auto">
             <div class="bg-slate-200 p-10">
-                <h2 class="text-center text-5xl font-sans tracking-widest text-cyan-950">CONTACT US</h2>
+                <h2 class="text-center text-4xl md:text-5xl font-sans tracking-widest text-cyan-950">CONTACT US</h2>
                 <hr class="mt-5">
             </div>
-            <div class="location flex justify-center items-start gap-10 py-16 px-10 bg-slate-100/75">
-                <div class="location w-5/12">
+            <div class="location md:flex md:justify-center md:items-start gap-10 py-16 px-10 bg-slate-100/75">
+                <div class="location md:w-5/12">
                     <div class="address mb-10">
                         <p class="p-1 font-bold text-slate-500 text-xl">PERLY GATE RESIDENCE</p>
                         <div class="my-2">
@@ -38,13 +38,13 @@
 
                     <div class="social my-10">  
                         <p class="p-2 font-bold text-slate-700 text-lg">Follow us on:</p>  
-                        <a href="" class="p-1 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
-                        <a href="" class="p-1 mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faTwitter'/></a>
-                        <a href="" class="p-1 mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faInstagram'/></a>
-                        <a href="" class="p-1 mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
+                        <a href="https://www.facebook.com/perlygateresidence?mibextid=ZbWKwL" class="p-1 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faFacebook'/></a>
+                        <!-- <a href="" class="p-1 mx-2 md:mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faTwitter'/></a> -->
+                        <a href="https://www.instagram.com/perlygateresidence?igsh=YzljYTk1ODg3Zg==" class="p-1 mx-2 md:mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faInstagram'/></a>
+                        <a href="https://wa.me/2347086680366" class="p-1 mx-2 md:mx-4 text-cyan-950 text-xl"><FontAwesomeIcon :icon='faWhatsapp'/></a>
                     </div>
                 </div>
-                <div class="contact-form w-5/12">
+                <div class="contact-form md:w-5/12">
                     <h2 class="font-bold text-2xl text-slate-600">Contact Us</h2>
                     <form class="contact-form">
                         <div>
