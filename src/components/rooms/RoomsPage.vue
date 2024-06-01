@@ -21,7 +21,7 @@
                     <div class="room-txt md:w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Luxury</p>
                         <p class="p-2 mb-5 md:mb-10">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
-                        <router-link to="/" class="rounded-full bg-orange-600 p-3 text-sm md:text-base md:p-4 text-white ">LEARN MORE ></router-link>
+                        <router-link to="/room_detail" class="rounded-full bg-orange-600 p-3 text-sm md:text-base md:p-4 text-white ">LEARN MORE ></router-link>
 
                     </div>
                 </div>

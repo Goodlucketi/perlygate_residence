@@ -1,9 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars"
 import { RouterLink, RouterView } from 'vue-router'
+import { useRouter } from 'vue-router';
 
 const navActive = ref(false)
 
@@ -11,6 +12,15 @@ const  toggleNavBar = ()=> {
     navActive.value = !navActive.value
     console.log('clicked');
   }
+
+  const router = useRouter();
+
+onMounted(() => {
+  router.beforeEach(() => {
+    navActive.value = false;
+    return true; // Allow the navigation
+  });
+});
 
 </script>
 

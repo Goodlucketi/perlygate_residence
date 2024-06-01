@@ -27,9 +27,9 @@
         <h2 class="text-center text-4xl md:text-5xl font-sans tracking-widest text-cyan-950">ROOMS</h2>
     
       <!-- Buttons to switch between tabs -->
-        <div class="buttons-container border-t border-b p-6 my-10 text-center">
+        <div class="buttons-container shadow-md border-t border-b p-6 my-10 text-center">
            
-            <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ 'active': activeTab === tab.id }" class="md:mx-5 px-3 my-2 text-lg font-mono text-cyan-950 hover:border-b-4 border-xl border-orange-600">{{ tab.name }}</button>
+            <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ 'active': activeTab === tab.id }" class="md:mx-5 p-3 my-2 text-lg font-mono text-cyan-950 border-xl border-orange-600 hover:shadow-md transition-all duration-800">{{ tab.name }}</button>
         </div>
         
         <div class="bg-slate-200 rounded-md py-4 md:px-10 md:py-7 w-10/12 mx-auto">

@@ -56,7 +56,7 @@ const showCalendar = (event) => {
 
     <div class="overlay p-10 text-center absolute top-0 h-screen z-10 w-full text-white bg-cyan-950/50">
       <h1 class="text-white mt-40 md:mt-60 text-4xl md:text-6xl font-thin tracking-widest">WELCOME TO PERLYGATES RESIDENCE</h1>
-      <p class="text-white text-2xl my-3 italic">Chill and Relax</p>
+      <p class="text-white text-xl my-3 italic">Chill and Relax</p>
       
       
       <p class="text-white mt-50 text-2xl">
