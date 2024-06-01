@@ -6,6 +6,9 @@
            import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
            import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
            import { faWhatsapp } from '@fortawesome/free-brands-svg-icons/faWhatsapp';
+           import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
+            import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+            import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
         
         </script>
         
@@ -14,9 +17,9 @@
                 <div class="footer-container text-sm p-4 md:p-10 md:flex md:justify-between">
                     <div class="address p-2 md:w-4/12 md:p-4">
                         <p class="p-1 font-bold text-lg">PERLY GATE RESIDENCE</p> 
-                        <p class="p-1">120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
-                        <p class="p-1">T +23470876680366</p>
-                        <p class="p-1">E reservations@perlygateresidence.com</p>
+                        <p class="p-1"><font-awesome-icon :icon="faMapMarker"/> 120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
+                        <p class="p-1"><font-awesome-icon :icon="faPhone"/> +23470876680366</p>
+                        <p class="p-1"><font-awesome-icon :icon="faEnvelope"/> reservations@perlygateresidence.com</p>
                     </div>
 
                     <div class="links p-2 md:w-4/12 md:p-4">

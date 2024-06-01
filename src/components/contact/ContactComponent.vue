@@ -7,6 +7,9 @@
     import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
     import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
     import { faWhatsapp } from '@fortawesome/free-brands-svg-icons/faWhatsapp';
+    import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
+    import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+    import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 
 </script>
 
@@ -23,15 +26,15 @@
                         <p class="p-1 font-bold text-slate-500 text-xl">PERLY GATE RESIDENCE</p>
                         <div class="my-2">
                             <p class="p-1 font-bold text-slate-600 text-lg">Address</p>
-                            <p class="p-1"><a href="https://maps.google.com/maps/dir//Perly+Gate+Residence+120+Calabar+Itu+Hwy+Uyo+520101,+Akwa+Ibom/@5.0571209,7.9090272,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x105d577ad2c61da3:0x35de29cdcd1a2bb1" class="hover:underline"> 120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</a></p>    
+                            <p class="p-1"><a href="https://maps.google.com/maps/dir//Perly+Gate+Residence+120+Calabar+Itu+Hwy+Uyo+520101,+Akwa+Ibom/@5.0571209,7.9090272,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x105d577ad2c61da3:0x35de29cdcd1a2bb1" class="hover:underline"><FontAwesomeIcon :icon="faMapMarker"/> 120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</a></p>    
                         </div>
                         <div class="my-2">
                             <p class="p-1 font-bold text-slate-600 text-lg">Telephone</p>
-                            <p class="p-1"><a href="tel:+23470876680366" class="hover:underline">+23470876680366</a></p>
+                            <p class="p-1"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone"/> +23470876680366</a></p>
                         </div>
                         <div class="my-2">
                             <p class="p-1 font-bold text-slate-600 text-lg">Email</p>
-                            <p class="p-1"><a href="mailto:reservations@perlygateresidence.com" class="hover:underline"> reservations@perlygateresidence.com</a></p>
+                            <p class="p-1"><a href="mailto:reservations@perlygateresidence.com" class="hover:underline"><FontAwesomeIcon :icon="faEnvelope"/> reservations@perlygateresidence.com</a></p>
                         </div>
                         
                     </div>

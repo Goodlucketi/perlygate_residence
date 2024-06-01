@@ -1,5 +1,8 @@
 <script setup>
-
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
+    import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+    import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 </script>
 
 <template>
@@ -11,11 +14,11 @@
             <div class="location">
                 <div class="address mb-10">
                     <p class="p-1 font-bold text-xl">PERLY GATE RESIDENCE</p> 
-                    <p class="p-1">120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
-                    <p class="p-1">T +23470876680366</p>
-                    <p class="p-1">E reservations@perlygateresidence.com</p>
+                    <p class="p-1"><font-awesome-icon :icon="faMapMarker"/> 120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
+                    <p class="p-1"><font-awesome-icon :icon="faPhone"/> +23470876680366</p>
+                    <p class="p-1"><font-awesome-icon :icon="faEnvelope"/> reservations@perlygateresidence.com</p>
                 </div>
-                <router-link to="/" class="rounded-full bg-orange-600 p-4 text-white ">LEARN MORE ></router-link>
+                <router-link to="/contact" class="rounded-full bg-orange-600 p-4 text-white ">LEARN MORE ></router-link>
 
             </div>
 
