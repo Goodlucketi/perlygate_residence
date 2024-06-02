@@ -13,6 +13,7 @@ import Rooms from './views/RoomsView.vue';
 import Contact from './views/ContactView.vue';
 import RoomsDetail from './views/RoomsDetail.vue';
 import Gallery from './views/GalleryView.vue';
+import Booking from './views/BookingView.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -21,6 +22,7 @@ const routes = [
   { path: '/contact', component: Contact },
   { path: '/room_detail', component: RoomsDetail },
   { path: '/gallery', component: Gallery },
+  { path: '/booking', component: Booking },
 ];
 
 const router = createRouter({
