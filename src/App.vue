@@ -33,7 +33,7 @@ onMounted(() => {
       <div class="links">
         <div class="contact flex items-center justify-start md:justify-end gap-5">
           <p class="text-white p-2"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone" class="bg-slate-800 p-3 rounded-full md:border-0 md:p-0 md:bg-transparent"/> <span class="hidden md:inline">+23470876680366</span> </a></p>
-          <a href="https://app.thebookingbutton.com/properties/perlygateresidencedirect"><button class="rounded-full bg-orange-600 p-2 text-white md:p-4">BOOK NOW</button></a>
+          <router-link to="/booking"><button class="rounded-full bg-orange-600 p-2 text-white md:p-4">BOOK NOW</button></router-link>
         </div>
         <div :class="['nav-links md:flex md:items-center text-white bg-cyan-950/90 md:bg-transparent h-screen md:h-0 w-6/12 md:w-full left-0 top-14 md:top-0 pt-10 px-4 md:p-4 md:gap-8 mt-5 absolute md:relative md:block', {hidden: !navActive}]">
           <router-link class="block my-5 hover:bg-white hover:text-cyan-950 transition-all duration-500 md:inline"to="/">HOME</router-link>
