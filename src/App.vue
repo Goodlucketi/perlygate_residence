@@ -13,7 +13,7 @@ const  toggleNavBar = ()=> {
     console.log('clicked');
   }
 
-  const router = useRouter();
+const router = useRouter();
 
 onMounted(() => {
   router.beforeEach(() => {

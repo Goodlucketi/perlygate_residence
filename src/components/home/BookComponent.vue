@@ -53,7 +53,7 @@
             <div class="book bg-orange-600 p-6 md:p-10">
                 <h2 class="text-center text-3xl text-white font-bold my-5 ">Book Now</h2>
                 <div class="bookform mx-auto">
-                    <form action="https://app.thebookingbutton.com/properties/perlygateresidencedirect" method="get" class="text-center">
+                    <form method="get" class="text-center">
                         <label class="relative block md:inline">
 
                           <input 

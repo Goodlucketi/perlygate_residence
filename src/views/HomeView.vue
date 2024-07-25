@@ -17,3 +17,6 @@
     <FooterComponent />
   </main>
 </template>
+<style scoped>
+
+</style>

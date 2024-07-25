@@ -8,7 +8,7 @@ export default {
     extend: {
       screens: {
         
-        'md': '740px',
+        'md': '860px',
         // => @media (min-width: 640px) { ... }
   
         'lg': '1024px',

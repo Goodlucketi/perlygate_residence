@@ -1,64 +1,45 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
+import BookingPreview from '@/views/BookingPreview.vue';
+import BookingView from '@/views/BookingView';
+import BookingSuccess from '@/views/BookSuccess.vue'
+import { useBookingStore } from '@/stores/booking';
+
 // import RoomsView from '../views/RoomsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/rooms',
-      name: 'rooms',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/RoomsView.vue')
-    },
-    {
-      path: '/gallery',
-      name: 'gallery',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/GalleryView.vue')
-    },
-    {
-      path: '/about-us',
-      name: 'about-us',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ContactView.vue')
-    },
-    {
-      path: '/room_detail',
-      name: 'room_detail',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/RoomsDetail.vue')
-    },
-    {
       path: '/booking',
       name: 'booking',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/RoomsDetail.vue')
+      component: BookingView
+    },
+
+    {
+      path: '/preview',
+      name: 'BookingPreview',
+      component: BookingPreview,
+      meta: {requiresBookingData:true},
+    },
+
+    {
+      path: '/book_success',
+      name: 'BookingSuccess',
+      component: BookingSuccess,
+      meta: {requiresBookingData:true},
+
     }
   ]
+});
+
+router.beforeEach((tp, from, next)=> {
+  const bookingStore = useBookingStore();
+  if(toString.meta.requiresBookingData && !bookingStore.hasBookingData()) {
+    next({ name: 'booking'})
+  }else{
+    next()
+  }
 })
 
 export default router

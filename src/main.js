@@ -5,6 +5,8 @@ import 'aos/dist/aos.css';
 import { createApp } from 'vue'
 import App from './App.vue'
 import AOS from 'aos'
+import { createPinia } from 'pinia';
+// import router from './router';
 
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './views/HomeView.vue';
@@ -14,6 +16,8 @@ import Contact from './views/ContactView.vue';
 import RoomsDetail from './views/RoomsDetail.vue';
 import Gallery from './views/GalleryView.vue';
 import Booking from './views/BookingView.vue';
+import BookingPreview from '@/views/BookingPreview.vue';
+import BookSuccess from '@/views/BookSuccess.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -23,6 +27,8 @@ const routes = [
   { path: '/room_detail', component: RoomsDetail },
   { path: '/gallery', component: Gallery },
   { path: '/booking', component: Booking },
+  { path: '/preview', component: BookingPreview },
+  { path: '/book_success', component: BookSuccess },
 ];
 
 const router = createRouter({
@@ -37,6 +43,7 @@ const router = createRouter({
 
 const app = createApp(App)
 
+app.use(createPinia());
 app.use(router)
 
 app.mount('#app');
