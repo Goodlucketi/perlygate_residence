@@ -41,9 +41,20 @@
             });
 
             router.push('/book_success');
+
         } catch (error) {
-            console.error('Error adding document: ', error);
-            alert('An error occurred while submitting the booking.');
+            // Handle specific errors
+            if (error.code === 'unavailable') {
+            // Firebase network error
+            errorMessage.value = 'Network error. Please check your internet connection and try again.';
+            } else if (error.code === 'permission-denied') {
+            // Firebase permission error
+            errorMessage.value = 'Permission denied. Please ensure you have the required permissions and try again.';
+            } else {
+            // General error
+            errorMessage.value = 'Failed to submit booking. Please try again.';
+            }
+            console.error('Error submitting booking:', errorMessage.value);
         }
     };
     
@@ -119,7 +130,7 @@
             </div>
             
         </div>
-        
+        <div v-if="errorMessage" class="error-message text-red-600 mt-10">{{ errorMessage }}</div>
     </div>
   </template>
   
@@ -127,5 +138,6 @@
   
   <style scoped>
   /* Add your styles here */
+  
   </style>
   
