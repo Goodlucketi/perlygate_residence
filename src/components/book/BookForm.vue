@@ -30,10 +30,40 @@
     const bookingStore = useBookingStore();
 
     const navigateToPreview = () => {
-       if (!fullName.value || !email.value || !phone.value || !checkIn.value || !checkOut.value || !guests.value || !roomType.value || !numRooms.value || !acceptTerms.value || !acceptPrivacy.value == "") {
-        errorMessage.value = "Please fill all required fields"
-       }
+        if (!fullName.value){
+            errorMessage.value = "Please fill your Full name"
+        }else if (!email.value) {
+            errorMessage.value = "Please fill your Email"
+            
+        } else if(!phone.value) {
+            errorMessage.value = "Please fill your Phone Number"
+            
+        }else if(!checkIn.value){
+            errorMessage.value = "Please fill Check In Date"
+
+        }
+        else if(!checkOut.value){
+            errorMessage.value = "Please fill Check Out Date"
+
+        }
+        else if(!guests.value){
+            errorMessage.value = "Please fill number of guests"
+
+        }
+        else if(!roomType.value){
+            errorMessage.value = "Please select Room Type"
+
+        }
+        else if(!numRooms.value){
+            errorMessage.value = "Please fill number of rooms"
+
+        }
+        else if(!acceptTerms.value || !acceptPrivacy.value){
+            errorMessage.value = "Please Accept terms"
+
+        }
         else{
+            errorMessage.value=""
             const bookingData = {
                 fullName: fullName.value,
                 email: email.value,
@@ -185,7 +215,7 @@
             </div>
            
         </form>
-        <div v-show="errorMessage"  class="error text-white bg-red-700 p-2 rounded w-10/12 mx-auto text-center">Error: {{ errorMessage }}</div>
+        <div v-if="errorMessage"  class="error text-white bg-red-700 p-2 rounded w-10/12 mx-auto text-center">Error: {{ errorMessage }}</div>
     </main>
 </template>
 

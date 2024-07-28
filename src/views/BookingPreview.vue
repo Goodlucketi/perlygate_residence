@@ -1,5 +1,5 @@
 <script setup>
-    import { computed } from 'vue';
+    import { ref, computed } from 'vue';
     import { useRouter } from 'vue-router';
     import { useBookingStore } from '@/stores/booking';
 
@@ -10,9 +10,11 @@
     const router = useRouter();
     const bookingStore = useBookingStore()
     const bookingData = bookingStore.bookingData;
-    
+    const loading = ref(false)
+    const errorMessage = ref('')
     // Calculate total cost (example calculation, adjust as needed)
     const totalCost = computed(() => {
+        
         let cost = 0;
         if (bookingData.roomType === 'suite') cost += 65000;
         if (bookingData.roomType === 'mini-suite') cost += 50000;
@@ -37,6 +39,7 @@
     });
   
     const confirmBooking = async () => {
+        loading.value=true;
         try {
             await addDoc(collection(db, 'bookings'), {
             ...bookingData,
@@ -59,6 +62,9 @@
             errorMessage.value = 'Failed to submit booking. Please try again.';
             }
             console.error('Error submitting booking:', errorMessage.value);
+        }
+        finally{
+            loading.value=false;
         }
     };
     
@@ -134,6 +140,10 @@
             </div>
             
         </div>
+        <div v-if="loading" class="bg absolute top-[10%] left-0 w-full h-screen text-2xl text-black p-32 bg-slate-900/75"></div>
+        <div v-if="loading" class="loading text-sm text-center flex flex-col justify-center" >
+            <p >PearlyGates</p>
+        </div>
         <div v-if="errorMessage" class="error-message text-red-600 mt-10">{{ errorMessage }}</div>
     </div>
   </template>
@@ -142,6 +152,44 @@
   
   <style scoped>
   /* Add your styles here */
-  
+  .loading{
+        border-radius: 50%;
+        border: 10px groove rgb(9, 2, 41);
+        animation: loading 2s ease infinite;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top:50%;
+        left: 40%;
+        transition: all linear ease;
+    }
+
+    @keyframes loading {
+        0%{
+            transform: rotate(30deg);
+            border-color: aliceblue;
+            color: rgb(245, 245, 247);
+        }
+       
+        35%{
+            transform: rotate(90deg);
+            border-color: rgb(49, 66, 80);
+            color: rgb(158, 236, 200);
+
+        }
+
+        70%{
+            transform: rotate(180deg);
+            border-color: rgb(137, 212, 114);
+            color: rgb(241, 216, 132);
+        }
+        100%{
+            border-color: rgb(243, 138, 120);
+            transform: rotate(360deg);
+            color: rgb(233, 173, 124);
+        }
+        
+    }
+
   </style>
   

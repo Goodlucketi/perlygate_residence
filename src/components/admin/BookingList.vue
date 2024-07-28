@@ -15,7 +15,7 @@
             createdAt: doc.data().createdAt.toDate().toLocaleDateString(),
         }));
         
-        console.log(bookings.value);
+        // console.log(bookings.value);
         } 
         catch (error) {
         console.error('Error fetching bookings:', error);
