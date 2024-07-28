@@ -24,14 +24,14 @@
     const tours = ref('');
     const acceptTerms = ref(false);
     const acceptPrivacy = ref(false);
-    // let errorMessage = ref('')
+    let errorMessage = ref('')
 
     const router = useRouter();
     const bookingStore = useBookingStore();
 
     const navigateToPreview = () => {
        if (!fullName.value || !email.value || !phone.value || !checkIn.value || !checkOut.value || !guests.value || !roomType.value || !numRooms.value || !acceptTerms.value || !acceptPrivacy.value == "") {
-        alert ("Some fields are empty, Please fill all fields")
+        errorMessage.value = "Please fill all required fields"
        }
         else{
             const bookingData = {
@@ -58,24 +58,28 @@
 </script>
 
 <template>
-    <main class="booking-img -mt-16 md:-mt-10 p-4 md:flex md:justify-center md:item-center">
-       
+    <main class="booking-img -mt-16 md:-mt-10 p-4">
         <form class="bookingForm text-slate-100 mx-auto p-4 md:w-8/12">
             <h2 class="text-4xl md:text-5xl text-center">Booking Form</h2>
             <hr class="mb-10 mt-2 h-1 w-6/12 mx-auto bg-slate-200">
+            <p class="text-xl text-center">Fields <span class="text-slate-100">*</span> are required</p>
+
             <fieldset class="border p-4 rounded-md mb-5 text-lg">
                 <legend>Basic Information</legend>
                 <!-- Basic Information -->
                 <div class="basic-grid md:grid md:grid-cols-3">
-                    <div class="p-1">
+                    <div class="p-1 relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <input v-model="fullName" type="text" id="fullName" name="fullName" required placeholder="Full Name" class="p-1 border mb-1 rounded w-full">
                     </div>
                     
-                    <div class="p-1">
+                    <div class="p-1 relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <input v-model="email" type="email" id="email" name="email" required placeholder="Email" class="p-1 border mb-1 rounded w-full">
                     </div>
                     
-                    <div class="p-1">
+                    <div class="p-1 relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <input v-model="phone" type="tel" id="phone" name="phone" required placeholder="Phone" class="p-1 border mb-1 rounded w-full">
                     </div>      
                 </div>
@@ -86,16 +90,19 @@
                 <!-- Reservation Details -->
                 <legend>Reservation Details</legend>
                 <div class="reservation-grid md:grid md:grid-cols-3 md:gap-3">
-                    <div>
+                    <div class="relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="checkIn">Check-in Date:</label>
                         <input v-model="checkIn" type="date" id="checkIn" name="checkIn" required class="p-1 border mb-1 rounded w-full">
                     </div>
-                    <div>
+                    <div class="relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="checkOut">Check-out Date:</label>
                         <input v-model="checkOut" type="date" id="checkOut" name="checkOut" required class="p-1 border mb-1 rounded w-full">
 
                     </div>
-                    <div>
+                    <div class="relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="guests">Number of Guests:</label>
                         <input v-model="guests" type="number" id="guests" name="guests" required class="p-1 border mb-1 rounded w-full">
                     </div>
@@ -106,8 +113,10 @@
                 <!-- Room Preferences -->
                 <legend>Room Preference</legend>
                 <div class="preference-grid md:grid md:grid-cols-3 md:gap-3 items-end ">
-                    <div>
-                        <select v-model="roomType" id="roomType" name="roomType" required class="p-1 border mb-1 rounded w-full">
+                    <div class="relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
+                        <label for="roomType">Room Type</label>
+                        <select v-model="roomType" id="roomType" name="roomType" required class="p-1 border text-slate-900 mb-1 rounded w-full">
                             <option value="">Room Type</option>
                             <option value="suite">Suite</option>
                             <option value="mini-suite">Mini Suite</option>
@@ -120,7 +129,8 @@
                             <option value="marvel-bliss">Marvelous Bliss</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="relative">
+                        <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="numRooms">Number of Rooms:</label>
                         <input v-model="numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms"class="p-1 border mb-1 rounded w-full">
                     </div>
@@ -175,7 +185,7 @@
             </div>
            
         </form>
-        <!-- <div v-show="errorMessage"  class="error text-white bg-red-700 p-2 rounded">Error: {{ errorMessage }}</div> -->
+        <div v-show="errorMessage"  class="error text-white bg-red-700 p-2 rounded w-10/12 mx-auto text-center">Error: {{ errorMessage }}</div>
     </main>
 </template>
 
