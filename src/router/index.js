@@ -8,7 +8,7 @@ import Gallery from '@/views/GalleryView.vue';
 import Booking from '@/views/BookingView.vue';
 import BookingPreview from '@/views/BookingPreview.vue';
 import BookSuccess from '@/views/BookSuccess.vue'
-import Admin from '@/components/admin/adminPortal.vue'
+import Admin from '@/components/admin/BookingList.vue'
 import { useBookingStore } from '@/stores/booking';
 
 

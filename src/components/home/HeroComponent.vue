@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar'
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser'
+import BookBtn from '@/components/home/BookBtn.vue'
 
 import { onMounted } from 'vue'
 // import function to register Swiper custom elements
@@ -68,23 +69,23 @@ const showCalendar = (event) => {
       </p>
     </div>
 
-    <div class=" hidden md:block book z-20 absolute w-full bottom-0 bg-slate-950/75 p-12">
+    <div class=" hidden md:block book z-20 absolute w-2/12 -bottom-12 left-24 rounded-md bg-slate-950/75 p-4">
       <div class="bookform mx-auto w-11/12">
-        <form class="text-center">
+        <form class="text-center block">
           <label class="relative">
-            <input type="date" name="arrival" id="arrival" class="p-3 mx-4 rounded w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-            <span class="absolute top-0 left-9 font-bold font-sans text-white">Arrival</span>
+            <input type="date" name="arrival" id="arrival" class="p-1  my-2 rounded w-full no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+            <span class="absolute top-0 left-2 font-bold font-sans text-white">Arrival</span>
             <span class="absolute top-0 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
           </label>
           
-          <label class="relative">
-            <input type="date" name="departure" id="departure" class="p-3 mx-4 rounded w-2/12 no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
-            <span class="absolute top-0 left-9 font-bold font-sans text-white">Departure</span>
-            <span class="absolute top-0 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
+          <label class="relative block">
+            <input type="date" name="departure" id="departure" class="p-1 my-2  rounded w-full no-placeholder bg-slate-900/25 border rounded" v-model="selectedDate" @focus="showCalendar" @click="showCalendar">
+            <span class="absolute top-3 left-2 font-bold font-sans text-white">Departure</span>
+            <span class="absolute top-3 right-7 text-white"><FontAwesomeIcon :icon="faCalendar"/></span>
           </label>
           
-          <label class="relative">
-            <select name="guests" id="guests" class="no-arrow p-3 mx-4 rounded w-2/12 bg-slate-900/25 text-white border rounded" >
+          <label class="relative block">
+            <select name="guests" id="guests" class="no-arrow p-1  my-2 rounded w-full bg-slate-900/25 text-white border rounded" >
               <option value="1">1 guest</option>
               <option value="2">2 guests</option>
               <option value="3">3 guests</option>
@@ -94,10 +95,10 @@ const showCalendar = (event) => {
               <option value="7">7 guests</option>
               <option value="8">8 guests</option>
             </select>
-            <span class="absolute top-0 right-6 text-white"><FontAwesomeIcon :icon="faUser"/></span>
+            <span class="absolute top-3 right-7 text-white"><FontAwesomeIcon :icon="faUser"/></span>
           </label>
           
-          <input type="submit" value="Book >" class="p-3 mx-4 rounded w-3/12 bg-orange-500 text-white">
+          <BookBtn />
         </form>
       </div>
     </div>

@@ -14,11 +14,15 @@
     // Calculate total cost (example calculation, adjust as needed)
     const totalCost = computed(() => {
         let cost = 0;
-        if (bookingData.roomType === 'suite') cost += 100;
-        if (bookingData.roomType === 'mini-suite') cost += 80;
-        if (bookingData.roomType === 'classic') cost += 60;
-        if (bookingData.roomType === 'classic-plus') cost += 70;
-        if (bookingData.roomType === 'luxury') cost += 120;
+        if (bookingData.roomType === 'suite') cost += 65000;
+        if (bookingData.roomType === 'mini-suite') cost += 50000;
+        if (bookingData.roomType === 'classic') cost += 30000;
+        if (bookingData.roomType === 'classic-plus') cost += 35000;
+        if (bookingData.roomType === 'luxury-single') cost += 40000;
+        if (bookingData.roomType === 'luxury-twin') cost += 45000;
+        if (bookingData.roomType === 'perly') cost += 55000;
+        if (bookingData.roomType === 'bliss') cost += 60000;
+        if (bookingData.roomType === 'marvel-bliss') cost += 70000;
     
         cost *= bookingData.numRooms;
         const days = (new Date(bookingData.checkOut) - new Date(bookingData.checkIn)) / (1000 * 60 * 60 * 24);

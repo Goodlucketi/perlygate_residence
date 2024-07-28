@@ -37,7 +37,7 @@
     const editBooking = (booking) => {
         // Implement the edit booking functionality
         // You may want to navigate to a booking edit page and pass the booking data
-        router.push({ name: 'EditBooking', params: { bookingId: booking.id } });
+        router.push('/editBooking', { params: { bookingId: booking.id } });
     };
     onMounted(() => {
         fetchBookings();
@@ -84,8 +84,10 @@
                     <td class=" equal-width">{{ booking.specialRequests }}</td>
                     <td class=" equal-width">{{ booking.tours }}</td>
                     <td class=" equal-width">{{ booking.totalCost }}</td>
-                    <td class=" equal-width"><button @click="deleteBooking(booking.id)">❌</button>
-                    <button @click="editBooking(booking)">📝</button></td>
+                    <td class=" equal-width">
+                        <button class="mx-5" @click="deleteBooking(booking.id)">❌</button>
+                        <button class="mx-5" @click="editBooking(booking)">📝</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -93,9 +95,9 @@
 </template>
 <style scoped>
     tr:nth-child(odd){
-        background: rgb(84, 105, 119);
+        background: rgb(131, 162, 182);
     }
-
+  
     .loading{
         border-radius: 50%;
         border: 10px groove rgb(9, 2, 41);
@@ -108,13 +110,13 @@
         transition: all linear ease;
     }
     .equal-width{
-        width: 6.67%;
+        /* width: 6.67%; */
     }
     th, td{
         white-space: nowrap;
         text-align: left;
-        padding: 5px;
-        border: 1px solid rgba(128, 128, 128, 0.295);
+        padding: 5px 10px;
+        border: 1px solid rgba(182, 175, 175, 0.295);
     }
 
     @keyframes loading {

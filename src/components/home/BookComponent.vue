@@ -2,6 +2,8 @@
   
     import { ref, watch } from 'vue'
     import MapComponent from './MapComponent.vue'
+    import BookBtn from '@/components/home/BookBtn.vue'
+
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar'
     import { faUser } from '@fortawesome/free-solid-svg-icons/faUser'
@@ -50,7 +52,7 @@
 <template>
     <main class="my-10 md:my-20 relative">
         <div class="book-container mx-auto">
-            <div class="book bg-orange-600 p-6 md:p-10">
+            <div class="book bg-slate-900 p-6 md:p-10">
                 <h2 class="text-center text-3xl text-white font-bold my-5 ">Book Now</h2>
                 <div class="bookform mx-auto">
                     <form method="get" class="text-center">
@@ -113,7 +115,7 @@
                             <span class="absolute top-3 right-5 md:top-0 md:right-7 text-white"><FontAwesomeIcon :icon="faUser"/></span>
                         </label>
                         
-                        <input type="submit" value="Book >" class="p-3 md:mx-4 rounded block md:inline w-full my-2 md:w-3/12 bg-orange-900 text-slate-100 font-bold transition-all duration-500 hover:bg-slate-100 hover:text-orange-900">
+                        <BookBtn class="w-full md:w-2/12 mt-5 mx-auto"/>
                     </form>
                 </div>
             </div>

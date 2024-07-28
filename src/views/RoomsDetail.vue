@@ -1,7 +1,7 @@
 <script setup>
     import { ref, watch } from 'vue';
     import FooterComponent from '@/components/home/FooterComponent.vue';
-    import BookComponent from '@/components/home/BookComponent.vue';
+    import BookBtn from '@/components/home/BookBtn.vue';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     
     import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar'
@@ -68,7 +68,7 @@
         
    
 
-        <div class="bg-slate-200 rounded-md py-4 md:px-10 md:py-7 w-10/12 mx-auto">
+        <!-- <div class="bg-slate-200 rounded-md py-4 md:px-10 md:py-7 w-10/12 mx-auto">
             <div class="bookform mx-auto w-11/12">
                 <form method="https://app.thebookingbutton.com/properties/perlygateresidencedirect" class="text-center relative">
                 <label class="relative block md:inline">
@@ -132,7 +132,7 @@
                 <input type="submit" value="Book >" class="p-3 mt-4 md:mx-4 rounded block md:inline w-full md:w-3/12 bg-orange-500 text-white">
                 </form>
             </div>
-        </div>
+        </div> -->
       <!-- Content for each tab -->
         <div v-if="activeTab === 'tab1'">
             <div class="properties my-16">
@@ -252,6 +252,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <FooterComponent />
   </template>
@@ -263,7 +264,9 @@
     .active{
         border-bottom: 4px orangered solid;
     }
-    input::placeholder{
+
+   
+    /* input::placeholder{
         color: #040116;
     }
 
@@ -276,6 +279,6 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-    }
+    } */
 </style>
   
