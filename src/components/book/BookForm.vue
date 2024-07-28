@@ -30,7 +30,7 @@
     const bookingStore = useBookingStore();
 
     const navigateToPreview = () => {
-       if (fullName || email || phone || checkIn || checkOut || guests || roomType || numRooms || specialRequests || airportShuttle || mealPlans || tours || acceptTerms || acceptPrivacy == "") {
+       if (!fullName.value || !email.value || !phone.value || !checkIn.value || !checkOut.value || !guests.value || !roomType.value || !numRooms.value || !acceptTerms.value || !acceptPrivacy.value == "") {
         alert ("Some fields are empty, Please fill all fields")
        }
         else{
@@ -162,7 +162,7 @@
                         <label for="acceptTerms" class="text-sm md:text-lg"> I agree to the <a href="#" class="text-slate-100 underline">terms and conditions</a> </label>
                     </p>
                     <p>
-                        <input v-model="acceptPrivacy" type="checkbox" id="acceptPrivacy" name="acceptPrivacy" required> 
+                        <input v-model="acceptPrivacy"  type="checkbox" id="acceptPrivacy" name="acceptPrivacy" required> 
                         <label for="acceptPrivacy" class="text-sm md:text-lg"> I agree to the <a href="#" class="text-slate-100 underline">privacy policy</a> </label>
                     </p>
                 </div>
