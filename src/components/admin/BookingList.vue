@@ -45,7 +45,7 @@
 </script>
 
 <template>
-    <main class="md:my-48 p-4 w-11/12 mx-auto overflow-auto">
+    <main class="my-32 md:my-48 p-4 w-11/12 mx-auto overflow-auto">
         <h2 class="text-3xl font-bold font-mono text-cyan-950">Booking List</h2>
         <div v-if="loading">
             <div class="loading text-sm text-center flex flex-col justify-center">PearlyGates</div>
@@ -105,8 +105,8 @@
         width: 100px;
         height: 100px;
         position: absolute;
-        top:60%;
-        left: 45%;
+        top:50%;
+        left: 40%;
         transition: all linear ease;
     }
     .equal-width{

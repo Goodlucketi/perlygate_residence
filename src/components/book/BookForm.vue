@@ -84,6 +84,9 @@
             router.push('/preview')
         }  
     };
+    const timeOut = setTimeout(() => {
+        
+    }, 5000);
     
 </script>
 
@@ -215,7 +218,7 @@
             </div>
            
         </form>
-        <div v-if="errorMessage"  class="error text-white bg-red-700 p-2 rounded w-10/12 mx-auto text-center">Error: {{ errorMessage }}</div>
+        <div v-if="errorMessage"  class="error text-white bg-red-600 p-2 rounded w-9/12 mx-auto text-center"> {{ errorMessage }}</div>
     </main>
 </template>
 
