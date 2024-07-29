@@ -140,8 +140,8 @@
             </div>
             
         </div>
-        <div v-if="loading" class="bg absolute top-[10%] left-0 w-full h-screen text-2xl text-black p-32 bg-slate-900/75"></div>
-        <div v-if="loading" class="loading text-sm text-center flex flex-col justify-center" >
+        <div v-if="loading" class="absolute top-0 md:top-[10%] left-0 w-full h-screen text-2xl text-black p-32 bg-slate-900/80"></div>
+        <div v-if="loading" class="loading text-sm rounded-full absolute left-[38%] top-[40%] md:top-[45%] md:left-[48%] text-center flex flex-col justify-center" >
             <p >PearlyGates</p>
         </div>
         <div v-if="errorMessage" class="error-message text-red-600 mt-10">{{ errorMessage }}</div>
@@ -153,14 +153,10 @@
   <style scoped>
   /* Add your styles here */
   .loading{
-        border-radius: 50%;
         border: 10px groove rgb(9, 2, 41);
         animation: loading 2s ease infinite;
         width: 100px;
         height: 100px;
-        position: absolute;
-        top:50%;
-        left: 40%;
         transition: all linear ease;
     }
 
