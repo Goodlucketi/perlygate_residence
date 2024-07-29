@@ -9,6 +9,7 @@
     { id: 'tab3', name: 'Attractions' },
     { id: 'tab4', name: 'Meals' },
     ];
+    
 </script>
 
 <template>
@@ -79,6 +80,9 @@
                     </div>
                     <div class="room mb-4">
                         <img src="../../assets/pearlygates/luxury.webp" alt="" class="w-full rounded-lg h-52 object-cover">
+                    </div>
+                    <div class="room mb-4">
+                        <img src="../../assets/pearlygates/mini-twin.jpg" alt="" class="w-full rounded-lg h-52 object-cover">
                     </div>
                 </div>
             </div>

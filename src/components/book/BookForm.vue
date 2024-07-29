@@ -24,42 +24,69 @@
     const tours = ref('');
     const acceptTerms = ref(false);
     const acceptPrivacy = ref(false);
-    let errorMessage = ref('')
+    const errorMessage = ref('')
 
     const router = useRouter();
     const bookingStore = useBookingStore();
 
+    // const clearErrorMessage = ()=>{
+    //     errorMessage.value = ''
+    // }
+
     const navigateToPreview = () => {
+        // clearTimeout(clearErrorMessage)
+
         if (!fullName.value){
             errorMessage.value = "Please fill your Full name"
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }else if (!email.value) {
             errorMessage.value = "Please fill your Email"
-            
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         } else if(!phone.value) {
             errorMessage.value = "Please fill your Phone Number"
-            
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }else if(!checkIn.value){
             errorMessage.value = "Please fill Check In Date"
-
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }
         else if(!checkOut.value){
             errorMessage.value = "Please fill Check Out Date"
-
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }
         else if(!guests.value){
             errorMessage.value = "Please fill number of guests"
-
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }
         else if(!roomType.value){
             errorMessage.value = "Please select Room Type"
-
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }
         else if(!numRooms.value){
             errorMessage.value = "Please fill number of rooms"
-
+            setTimeout(() => {
+                errorMessage.value = ''
+            }, 5000);
         }
         else if(!acceptTerms.value || !acceptPrivacy.value){
             errorMessage.value = "Please Accept terms"
+            setTimeout(() => {
+                console.log("Error cleared");
+                errorMessage.value = ''
+            }, 5000);
 
         }
         else{
@@ -84,23 +111,20 @@
             router.push('/preview')
         }  
     };
-    const timeOut = setTimeout(() => {
-        
-    }, 5000);
     
 </script>
 
 <template>
     <main class="booking-img -mt-16 md:-mt-10 p-4">
-        <form class="bookingForm text-slate-100 mx-auto p-4 md:w-8/12">
+        <form class="bookingForm text-slate-100 mx-auto p-4 md:w-9/12 lg:w-8/12">
             <h2 class="text-4xl md:text-5xl text-center">Booking Form</h2>
             <hr class="mb-10 mt-2 h-1 w-6/12 mx-auto bg-slate-200">
             <p class="text-xl text-center">Fields <span class="text-slate-100">*</span> are required</p>
 
-            <fieldset class="border p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <legend>Basic Information</legend>
                 <!-- Basic Information -->
-                <div class="basic-grid md:grid md:grid-cols-3">
+                <div class="basic-grid  md:grid md:grid-cols-3">
                     <div class="p-1 relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <input v-model="fullName" type="text" id="fullName" name="fullName" required placeholder="Full Name" class="p-1 border mb-1 rounded w-full">
@@ -119,7 +143,7 @@
                    
             </fieldset>
 
-            <fieldset class="border p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <!-- Reservation Details -->
                 <legend>Reservation Details</legend>
                 <div class="reservation-grid md:grid md:grid-cols-3 md:gap-3">
@@ -142,7 +166,7 @@
                 </div>
             </fieldset>
             
-            <fieldset class="border p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <!-- Room Preferences -->
                 <legend>Room Preference</legend>
                 <div class="preference-grid md:grid md:grid-cols-3 md:gap-3 items-end ">
@@ -179,7 +203,7 @@
                 </div>                
             </fieldset>
            
-            <fieldset class="border p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <legend>Additional Services</legend>
                  <!-- Additional Services -->
                 <div class="shuttle mb-5">
@@ -196,7 +220,7 @@
 
             </fieldset>
 
-            <fieldset class="border p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <legend>Terms and Conditions</legend>
                  <!-- Terms and Conditions -->
                 <div class="terms md:grid md:grid-cols-2 md:gap-3">
@@ -218,7 +242,7 @@
             </div>
            
         </form>
-        <div v-if="errorMessage"  class="error text-white bg-red-600 p-2 rounded w-9/12 mx-auto text-center"> {{ errorMessage }}</div>
+        <div v-if="errorMessage"  class="error text-white bg-red-600 p-2 rounded w-9/12 md:w-3/12 mx-auto text-center"> {{ errorMessage }}</div>
     </main>
 </template>
 

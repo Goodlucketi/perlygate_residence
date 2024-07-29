@@ -11,10 +11,14 @@
 
     const tabs = [
     { id: 'tab1', name: 'Luxury' },
+    { id: 'tab8', name: 'Luxury 2' },
     { id: 'tab2', name: 'Suite' },
-    { id: 'tab3', name: 'Mini Suite' },
     { id: 'tab4', name: 'Classic Plus' },
+    { id: 'tab3', name: 'Mini Suite' },
     { id: 'tab5', name: 'Classic' },
+    { id: 'tab6', name: 'Perly Suite' },
+    { id: 'tab7', name: 'Marvelous Suite' },
+    { id: 'tab9', name: 'Blissfull Suite' },
     ];
 
     const arrivalDate = ref('')
@@ -54,6 +58,17 @@
     const  showCalendar = (e)=>{
       e.target.showPicker()
     }
+    const pricing = {
+        classic: 30000,
+        classicPlus: 35000,
+        miniSuite: 50000,
+        perlySuite: 55000,
+        marvelSuite: 70000,
+        luxurySingle: 40000,
+        blissHeaven: 60000,
+        luxuryTwin: 45000,
+        suite: 65000,
+    }
 </script>
 
 <template>
@@ -61,9 +76,9 @@
         <h2 class="text-center text-4xl md:text-5xl font-sans tracking-widest text-cyan-950">ROOMS</h2>
     
       <!-- Buttons to switch between tabs -->
-        <div class="buttons-container shadow-md border-t border-b p-6 my-10 text-center">
+        <div class="buttons-container shadow-md border-t border-b p-6 my-10 md:text-center">
            
-            <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ 'active': activeTab === tab.id }" class="md:mx-5 p-3 my-2 text-lg font-mono text-cyan-950 border-xl border-orange-600 hover:shadow-md transition-all duration-800">{{ tab.name }}</button>
+            <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ 'active': activeTab === tab.id }" class="mr-1 md:mx-3 p-2 my-1 text-base font-mono text-cyan-950 border border-gray-100 hover:shadow-md transition-all duration-800">{{ tab.name }}</button>
         </div>
         
    
@@ -137,12 +152,38 @@
         <div v-if="activeTab === 'tab1'">
             <div class="properties my-16">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property md:w-8/12">
-                        <img src="../assets/pearlygates/luxury.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/hotel_77.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white py-2 px-4">N {{ pricing.luxurySingle }}</span>
                     </div>
                     <div class="property md:w-4/12">
                         <div class="detail p-2 mb-3">
-                            <p  class="font-bold text-lg text-slate-800">Luxury</p>
+                            <p  class="font-bold text-lg text-slate-800">Luxury (Single Bed)</p>
+                            <p class="leading-snug">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
+                        </div>
+                        <div class="amenities p-4 mb-3 bg-slate-100">
+                            <p  class="font-bold text-lg text-slate-800">Amenities</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Bath</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faWifi"/> Wireless Internet</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faCoffee"/> Tea and Coffee Making</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Desk</p>
+                            <p><FontAwesomeIcon :icon="faWifi"/> Linen and Towels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="activeTab === 'tab8'">
+            <div class="properties my-16">
+                <div class="md:flex md:gap-5 w-11/12 mx-auto">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/Mini-suite.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white py-2 px-4">N {{ pricing.luxuryTwin }}</span>
+                    </div>
+                    <div class="property md:w-4/12">
+                        <div class="detail p-2 mb-3">
+                            <p  class="font-bold text-lg text-slate-800">Luxury (Double Bed)</p>
                             <p class="leading-snug">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
                         </div>
                         <div class="amenities p-4 mb-3 bg-slate-100">
@@ -160,8 +201,9 @@
         <div v-else-if="activeTab === 'tab2'">
             <div class="rooms my-20">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property md:w-8/12">
+                    <div class="property relative md:w-8/12">
                         <img src="../assets/pearlygates/suite.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white py-2 px-4">N {{ pricing.suite }}</span>
                     </div>
                     <div class="property md:w-4/12">
                         <div class="detail p-2 mb-3">
@@ -184,8 +226,9 @@
         <div v-else-if="activeTab === 'tab3'">
             <div class="attractions my-10">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property md:w-8/12">
-                        <img src="../assets/pearlygates/Mini-suite.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/mini-twin.jpg" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.miniSuite }}</span>
                     </div>
                     <div class="property md:w-4/12">
                         <div class="detail p-2 mb-3">
@@ -200,6 +243,7 @@
                             <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Desk</p>
                             <p><FontAwesomeIcon :icon="faWifi"/> Linen and Towels</p>
                         </div>
+                       
                     </div>
                 </div>
             </div>
@@ -208,8 +252,9 @@
         <div v-else-if="activeTab === 'tab4'">
             <div class="attractions my-10">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property md:w-8/12">
+                    <div class="property md:w-8/12 relative">
                         <img src="../assets/pearlygates/classic-plus.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.classicPlus }}</span>
                     </div>
                     <div class="property md:w-4/12">
                         <div class="detail p-2 mb-3">
@@ -232,8 +277,9 @@
         <div v-else-if="activeTab === 'tab5'">
             <div class="attractions my-10">
                 <div class="md:flex md:gap-5 w-11/12 mx-auto">
-                    <div class="property md:w-8/12">
-                        <img src="../assets/pearlygates/classic.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/about2.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.classic }}</span>
                     </div>
                     <div class="property md:w-4/12">
                         <div class="detail p-2 mb-3">
@@ -252,6 +298,81 @@
                 </div>
             </div>
         </div>
+        <div v-else-if="activeTab === 'tab6'">
+            <div class="attractions my-10">
+                <div class="md:flex md:gap-5 w-11/12 mx-auto">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/classic.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.perlySuite }}</span>
+                    </div>
+                    <div class="property md:w-4/12">
+                        <div class="detail p-2 mb-3">
+                            <p  class="font-bold text-lg text-slate-800">Perly Suite</p>
+                            <p class="leading-snug">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
+                        </div>
+                        <div class="amenities p-4 mb-3 bg-slate-100">
+                            <p  class="font-bold text-lg text-slate-800">Amenities</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Bath</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faWifi"/> Wireless Internet</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faCoffee"/> Tea and Coffee Making</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Desk</p>
+                            <p><FontAwesomeIcon :icon="faWifi"/> Linen and Towels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-else-if="activeTab === 'tab7'">
+            <div class="attractions my-10">
+                <div class="md:flex md:gap-5 w-11/12 mx-auto">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/hotel_74.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.marvelSuite }}</span>
+                    </div>
+                    <div class="property md:w-4/12">
+                        <div class="detail p-2 mb-3">
+                            <p  class="font-bold text-lg text-slate-800">Marvelous Suite</p>
+                            <p class="leading-snug">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
+                        </div>
+                        <div class="amenities p-4 mb-3 bg-slate-100">
+                            <p  class="font-bold text-lg text-slate-800">Amenities</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Bath</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faWifi"/> Wireless Internet</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faCoffee"/> Tea and Coffee Making</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Desk</p>
+                            <p><FontAwesomeIcon :icon="faWifi"/> Linen and Towels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-else-if="activeTab === 'tab9'">
+            <div class="attractions my-10">
+                <div class="md:flex md:gap-5 w-11/12 mx-auto">
+                    <div class="property relative md:w-8/12">
+                        <img src="../assets/pearlygates/hotel_122.webp" alt="" class="w-full rounded-lg h-92 object-cover">
+                        <span class="absolute top-2 right-2 bg-orange-600 rounded text-white px-4 py-2">N {{ pricing.blissHeaven }}</span>
+                    </div>
+                    <div class="property md:w-4/12">
+                        <div class="detail p-2 mb-3">
+                            <p  class="font-bold text-lg text-slate-800">Blissfull Heaven</p>
+                            <p class="leading-snug">Featuring free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower and slippers. The air-conditioned double room features a flat-screen TV, a tea and coffee maker, a dining area, a wardrobe as well as pool views.</p>
+                        </div>
+                        <div class="amenities p-4 mb-3 bg-slate-100">
+                            <p  class="font-bold text-lg text-slate-800">Amenities</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Bath</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faWifi"/> Wireless Internet</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faCoffee"/> Tea and Coffee Making</p>
+                            <p class="mb-2"><FontAwesomeIcon :icon="faBath"/> Desk</p>
+                            <p><FontAwesomeIcon :icon="faWifi"/> Linen and Towels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <FooterComponent />
