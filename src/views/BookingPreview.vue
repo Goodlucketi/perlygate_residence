@@ -136,7 +136,7 @@
             </table>
             <div class="text-center">
                 <button @click="editBooking" class="p-2 bg-cyan-800 text-white mx-2 rounded-md">Edit Booking</button>
-                <button @click.prevent()="confirmBooking" class="p-2 bg-green-800 text-white mx-2 rounded-md">Confirm Booking</button>
+                <button @click="confirmBooking" class="p-2 bg-green-800 text-white mx-2 rounded-md">Confirm Booking</button>
             </div>
             
         </div>

@@ -45,8 +45,7 @@
 </script>
 
 <template>
-    <main class="my-32 md:my-48 p-4 w-11/12 mx-auto overflow-auto">
-        <h2 class="text-3xl font-bold font-mono text-cyan-950">Booking List</h2>
+    <main class="p-4 mx-auto overflow-auto">
         <div v-if="loading">
             <div class="loading text-sm text-center flex flex-col justify-center">PearlyGates</div>
         </div>
@@ -106,11 +105,8 @@
         height: 100px;
         position: absolute;
         top:50%;
-        left: 40%;
+        left: 55%;
         transition: all linear ease;
-    }
-    .equal-width{
-        /* width: 6.67%; */
     }
     th, td{
         white-space: nowrap;

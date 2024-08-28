@@ -189,7 +189,7 @@
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="numRooms">Number of Rooms:</label>
-                        <input v-model="numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms"class="p-1 border mb-1 rounded w-full">
+                        <input v-model="numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms" class="p-1 border mb-1 rounded w-full">
                     </div>
                     <div>
                         <label for="mealPlans" class="block mt-5 mb-0">Meal Plans:</label>

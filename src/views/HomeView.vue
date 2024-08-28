@@ -1,4 +1,5 @@
 <script setup>
+  import NavBar from '@/components/home/NavBar.vue';
   import HeroComponent from '@/components/home/HeroComponent.vue';
   import RoomsComponent from '@/components/home/RoomsComponent.vue';
   import AboutComponent from '@/components/home/AboutComponent.vue';
@@ -9,6 +10,7 @@
 
 <template>
   <main>
+    <NavBar />
     <HeroComponent />
     <RoomsComponent />
     <AboutComponent />

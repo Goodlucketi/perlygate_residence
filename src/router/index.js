@@ -9,6 +9,7 @@ import Booking from '@/views/BookingView.vue';
 import BookingPreview from '@/views/BookingPreview.vue';
 import BookSuccess from '@/views/BookSuccess.vue'
 import Admin from '@/components/admin/BookingList.vue'
+import Dashboard from '@/components/admin/Dashboard.vue'
 import { useBookingStore } from '@/stores/booking';
 
 
@@ -86,6 +87,12 @@ const routes = [
     path: '/admin',
     component: Admin,
     name:Admin
+  },
+
+  {
+    path: '/dashboard',
+    component: Dashboard,
+    name:Dashboard
   }
 ];
 
