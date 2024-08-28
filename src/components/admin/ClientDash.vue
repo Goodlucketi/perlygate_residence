@@ -1,12 +1,10 @@
 <script setup>
-    import { defineProps } from 'vue';
-    
-
     import BookingList from './BookingList.vue';
     import OverView from './overview/OverView.vue';
     import RoomsOverview from './overview/RoomsOverview.vue';
     import RoomStatus from './overview/RoomStatus.vue';
     import OccupancyStats from './overview/OccupancyStats.vue';
+    import CustomerFeedback from './overview/CustomerFeedback.vue';
 
 
     const props = defineProps({
@@ -15,14 +13,15 @@
 </script>
 
 <template>
-    <div class="client-Dash my-10 w-10/12">
+    <div class="client-Dash w-10/12">
         <div class="overview" v-if="currentView==='overview'">
             <h2 class="text-3xl font-bold font-mono text-cyan-950 text-center">Overview</h2>
             <main>
                 <OverView />
                 <RoomsOverview />
-                <div class="flex">
+                <div class="grid grid-cols-2">
                     <RoomStatus />
+                    <CustomerFeedback />
                     <OccupancyStats />
                 </div>
                 
