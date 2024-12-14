@@ -166,24 +166,24 @@
                 </div>
             </fieldset>
             
-            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded mb-5 text-lg">
                 <!-- Room Preferences -->
                 <legend>Room Preference</legend>
                 <div class="preference-grid md:grid md:grid-cols-3 md:gap-3 items-end ">
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="roomType">Room Type</label>
-                        <select v-model="roomType" id="roomType" name="roomType" required class="p-1 border text-slate-900 mb-1 rounded w-full">
-                            <option value="">Room Type</option>
-                            <option value="suite">Suite</option>
-                            <option value="mini-suite">Mini Suite</option>
-                            <option value="classic">Classic</option>
-                            <option value="classic-plus">Classic Plus</option>
-                            <option value="luxury-single">Luxury (Single Bed)</option>
-                            <option value="luxury-twin">Luxury (Twin Bed)</option>
-                            <option value="perly">Perly Suite</option>
-                            <option value="bliss">Blissful Heaven</option>
-                            <option value="marvel-bliss">Marvelous Bliss</option>
+                        <select v-model="roomType" id="roomType" name="roomType" required class="p-1 border mb-1 rounded-md w-full">
+                            <option class="bg-slate-900" value="">Room Type</option>
+                            <option class="bg-slate-900" value="suite">Suite</option>
+                            <option class="bg-slate-900" value="mini-suite">Mini Suite</option>
+                            <option class="bg-slate-900" value="classic">Classic</option>
+                            <option class="bg-slate-900" value="classic-plus">Classic Plus</option>
+                            <option class="bg-slate-900" value="luxury-single">Luxury (Single Bed)</option>
+                            <option class="bg-slate-900" value="luxury-twin">Luxury (Twin Bed)</option>
+                            <option class="bg-slate-900" value="perly">Perly Suite</option>
+                            <option class="bg-slate-900" value="bliss">Blissful Heaven</option>
+                            <option class="bg-slate-900" value="marvel-bliss">Marvelous Bliss</option>
                         </select>
                     </div>
                     <div class="relative">

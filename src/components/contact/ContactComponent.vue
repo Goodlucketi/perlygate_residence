@@ -30,7 +30,7 @@
                         </div>
                         <div class="my-2">
                             <p class="p-1 font-bold text-slate-600 text-lg">Telephone</p>
-                            <p class="p-1"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone"/> +23470876680366</a></p>
+                            <p class="p-1"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone"/> +2347086680366</a></p>
                         </div>
                         <div class="my-2">
                             <p class="p-1 font-bold text-slate-600 text-lg">Email</p>
