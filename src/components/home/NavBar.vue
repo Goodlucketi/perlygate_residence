@@ -33,7 +33,7 @@ onMounted(() => {
       </div>
       <div class="links">
         <div class="contact flex items-center justify-start md:justify-end gap-3">
-          <p class="text-white p-2"><a href="tel:+23470876680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone" class="bg-slate-800 p-3 rounded-full md:border-0 md:p-0 md:bg-transparent"/> <span class="hidden md:inline">+23470876680366</span> </a></p>
+          <p class="text-white p-2"><a href="tel:+2347086680366" class="hover:underline"><FontAwesomeIcon :icon="faPhone" class="bg-slate-800 p-3 rounded-full md:border-0 md:p-0 md:bg-transparent"/> <span class="hidden md:inline">+23470876680366</span> </a></p>
           <BookBtn class=""/>
           <!-- <router-link to="/booking"><button class="rounded-full bg-orange-600 p-2 text-white text-sm md:p-3">BOOK NOW</button></router-link> -->
         </div>
