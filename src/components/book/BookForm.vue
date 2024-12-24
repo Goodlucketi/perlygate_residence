@@ -10,20 +10,22 @@
     import { useBookingStore } from '@/stores/booking';
 
 // Define your refs and form data here
-    const fullName = ref('');
-    const email = ref('');
-    const phone = ref('');
-    const checkIn = ref('');
-    const checkOut = ref('');
-    const guests = ref(1);
-    const roomType = ref('');
-    const numRooms = ref(1);
-    const specialRequests = ref('');
-    const airportShuttle = ref(false);
-    const mealPlans = ref('none');
-    const tours = ref('');
-    const acceptTerms = ref(false);
-    const acceptPrivacy = ref(false);
+    const bookingData = ref({
+        fullName: '',
+        email: '',
+        phone: '',
+        checkIn: '',
+        checkOut: '',
+        guests: 1,
+        roomType: '',
+        numRooms: 1,
+        specialRequests: '',
+        airportShuttle: false,
+        mealPlans: 'none',
+        tours: '',
+        acceptTerms: false,
+        acceptPrivacy: false,
+    })
     const errorMessage = ref('')
 
     const router = useRouter();
@@ -32,82 +34,29 @@
     // const clearErrorMessage = ()=>{
     //     errorMessage.value = ''
     // }
-
+    const validateBooking = ()=>{
+        if (!fullName.value) return "Please fill in your Full Name";
+        if (!email.value) return "Please fill in your Email";
+        if (!phone.value) return "Please fill in your Phone Number";
+        if (!checkIn.value) return "Please fill in Check-In Date";
+        if (!checkOut.value) return "Please fill in Check-Out Date";
+        if (!guests.value) return "Please fill in the number of guests";
+        if (!roomType.value) return "Please select a Room Type";
+        if (!numRooms.value) return "Please fill in the number of rooms";
+        if (!acceptTerms.value || !acceptPrivacy.value) return "Please accept the terms and privacy policy";
+        return null;
+    }
     const navigateToPreview = () => {
-        // clearTimeout(clearErrorMessage)
-
-        if (!fullName.value){
-            errorMessage.value = "Please fill your Full name"
+        const error = validateBooking()
+        if (error){
+            errorMessage.value = error
             setTimeout(() => {
                 errorMessage.value = ''
             }, 5000);
-        }else if (!email.value) {
-            errorMessage.value = "Please fill your Email"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        } else if(!phone.value) {
-            errorMessage.value = "Please fill your Phone Number"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }else if(!checkIn.value){
-            errorMessage.value = "Please fill Check In Date"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }
-        else if(!checkOut.value){
-            errorMessage.value = "Please fill Check Out Date"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }
-        else if(!guests.value){
-            errorMessage.value = "Please fill number of guests"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }
-        else if(!roomType.value){
-            errorMessage.value = "Please select Room Type"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }
-        else if(!numRooms.value){
-            errorMessage.value = "Please fill number of rooms"
-            setTimeout(() => {
-                errorMessage.value = ''
-            }, 5000);
-        }
-        else if(!acceptTerms.value || !acceptPrivacy.value){
-            errorMessage.value = "Please Accept terms"
-            setTimeout(() => {
-                console.log("Error cleared");
-                errorMessage.value = ''
-            }, 5000);
-
         }
         else{
             errorMessage.value=""
-            const bookingData = {
-                fullName: fullName.value,
-                email: email.value,
-                phone: phone.value,
-                checkIn: checkIn.value,
-                checkOut: checkOut.value,
-                guests: guests.value,
-                roomType: roomType.value,
-                numRooms: numRooms.value,
-                specialRequests: specialRequests.value,
-                airportShuttle: airportShuttle.value,
-                mealPlans: mealPlans.value,
-                tours: tours.value,
-                acceptTerms: acceptTerms.value,
-                acceptPrivacy: acceptPrivacy.value,
-            };
-            bookingStore.setBookingData(bookingData);
+            bookingStore.setBookingData({...bookingData.value});
             router.push('/preview')
         }  
     };
@@ -127,17 +76,17 @@
                 <div class="basic-grid  md:grid md:grid-cols-3">
                     <div class="p-1 relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
-                        <input v-model="fullName" type="text" id="fullName" name="fullName" required placeholder="Full Name" class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.fullName" type="text" id="fullName" name="fullName" required placeholder="Full Name" class="p-1 border mb-1 rounded w-full">
                     </div>
                     
                     <div class="p-1 relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
-                        <input v-model="email" type="email" id="email" name="email" required placeholder="Email" class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.email" type="email" id="email" name="email" required placeholder="Email" class="p-1 border mb-1 rounded w-full">
                     </div>
                     
                     <div class="p-1 relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
-                        <input v-model="phone" type="tel" id="phone" name="phone" required placeholder="Phone" class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.phone" type="tel" id="phone" name="phone" required placeholder="Phone" class="p-1 border mb-1 rounded w-full">
                     </div>      
                 </div>
                    
@@ -150,18 +99,18 @@
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="checkIn">Check-in Date:</label>
-                        <input v-model="checkIn" type="date" id="checkIn" name="checkIn" required class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.checkIn" type="date" id="checkIn" name="checkIn" required class="p-1 border mb-1 rounded w-full">
                     </div>
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="checkOut">Check-out Date:</label>
-                        <input v-model="checkOut" type="date" id="checkOut" name="checkOut" required class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.checkOut" type="date" id="checkOut" name="checkOut" required class="p-1 border mb-1 rounded w-full">
 
                     </div>
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="guests">Number of Guests:</label>
-                        <input v-model="guests" type="number" id="guests" name="guests" required class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.guests" type="number" id="guests" name="guests" required class="p-1 border mb-1 rounded w-full">
                     </div>
                 </div>
             </fieldset>
@@ -173,15 +122,15 @@
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="roomType">Room Type</label>
-                        <select v-model="roomType" id="roomType" name="roomType" required class="p-1 border text-slate-900 mb-1 rounded w-full">
+                        <select v-model="bookingData.roomType" id="roomType" name="roomType" required class="p-1 border text-slate-900 mb-1 rounded w-full">
                             <option value="">Room Type</option>
                             <option value="suite">Suite</option>
                             <option value="mini-suite">Mini Suite</option>
                             <option value="classic">Classic</option>
                             <option value="classic-plus">Classic Plus</option>
-                            <option value="luxury-single">Luxury (Single Bed)</option>
+                            {/* <option value="luxury-single">Luxury (Single Bed)</option> */}
                             <option value="luxury-twin">Luxury (Twin Bed)</option>
-                            <option value="perly">Perly Suite</option>
+                            {/* <option value="perly">Perly Suite</option> */}
                             <option value="bliss">Blissful Heaven</option>
                             <option value="marvel-bliss">Marvelous Bliss</option>
                         </select>
@@ -189,11 +138,11 @@
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="numRooms">Number of Rooms:</label>
-                        <input v-model="numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms" class="p-1 border mb-1 rounded w-full">
+                        <input v-model="bookingData.numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms" class="p-1 border mb-1 rounded w-full">
                     </div>
                     <div>
                         <label for="mealPlans" class="block mt-5 mb-0">Meal Plans:</label>
-                        <select v-model="mealPlans" id="mealPlans" name="mealPlans" class="p-1 border mb-1 rounded w-full">
+                        <select v-model="bookingData.mealPlans" id="mealPlans" name="mealPlans" class="p-1 border mb-1 rounded w-full">
                             <option value="none">None</option>
                             <option value="breakfast">Breakfast</option>
                             <option value="halfBoard">Half Board (Breakfast + Dinner)</option>
@@ -208,13 +157,13 @@
                  <!-- Additional Services -->
                 <div class="shuttle mb-5">
                     <label for="airportShuttle">Airport Shuttle: </label>
-                    <input v-model="airportShuttle" type="checkbox" id="airportShuttle" name="airportShuttle">
+                    <input v-model="bookingData.airportShuttle" type="checkbox" id="airportShuttle" name="airportShuttle">
                 </div>
                 
                 <div class="md:grid md:grid-cols-2 gap-1">
-                    <textarea v-model="tours" id="tours" name="tours" placeholder="Tours and Activities" class="p-1 border mb-1 rounded w-full"></textarea>
+                    <textarea v-model="bookingData.tours" id="tours" name="tours" placeholder="Tours and Activities" class="p-1 border mb-1 rounded w-full"></textarea>
 
-                    <textarea v-model="specialRequests" id="specialRequests" name="specialRequests" placeholder="Special Requests" class="p-1 border mb-1 rounded w-full"></textarea>
+                    <textarea v-model="bookingData.specialRequests" id="specialRequests" name="specialRequests" placeholder="Special Requests" class="p-1 border mb-1 rounded w-full"></textarea>
                 </div>
                 
 
@@ -225,11 +174,11 @@
                  <!-- Terms and Conditions -->
                 <div class="terms md:grid md:grid-cols-2 md:gap-3">
                     <p>
-                        <input v-model="acceptTerms" type="checkbox" id="acceptTerms" name="acceptTerms" required> 
+                        <input v-model="bookingData.acceptTerms" type="checkbox" id="acceptTerms" name="acceptTerms" required> 
                         <label for="acceptTerms" class="text-sm md:text-lg"> I agree to the <a href="#" class="text-slate-100 underline">terms and conditions</a> </label>
                     </p>
                     <p>
-                        <input v-model="acceptPrivacy"  type="checkbox" id="acceptPrivacy" name="acceptPrivacy" required> 
+                        <input v-model="bookingData.acceptPrivacy"  type="checkbox" id="acceptPrivacy" name="acceptPrivacy" required> 
                         <label for="acceptPrivacy" class="text-sm md:text-lg"> I agree to the <a href="#" class="text-slate-100 underline">privacy policy</a> </label>
                     </p>
                 </div>

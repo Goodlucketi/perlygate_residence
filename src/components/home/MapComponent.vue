@@ -15,7 +15,7 @@
                 <div class="address mb-10">
                     <p class="p-1 font-bold text-xl">PERLY GATE RESIDENCE</p> 
                     <p class="p-1"><font-awesome-icon :icon="faMapMarker"/> 120 Calabar Itu Highway, Uyo, Akwa Ibom State, 520101, Nigeria</p>    
-                    <p class="p-1"><font-awesome-icon :icon="faPhone"/> +23470876680366</p>
+                    <p class="p-1"><font-awesome-icon :icon="faPhone"/> +2347086680366</p>
                     <p class="p-1"><font-awesome-icon :icon="faEnvelope"/> reservations@perlygateresidence.com</p>
                 </div>
                 <router-link to="/contact" class="rounded-full bg-orange-600 p-4 text-white ">LEARN MORE ></router-link>

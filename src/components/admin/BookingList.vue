@@ -1,19 +1,18 @@
 <script setup>
     import { ref, onMounted } from 'vue';
-    import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
-    import { db } from '@/firebase';
+
     
     const bookings = ref([]);
-    const loading = ref(true);
+    const loading = ref(false);
     
     const fetchBookings = async () => {
         try {
-        const querySnapshot = await getDocs(collection(db, 'bookings'));
-        bookings.value = querySnapshot.docs.map(doc => 
-        ({ 
-            id: doc.id, ...doc.data(),
-            createdAt: doc.data().createdAt.toDate().toLocaleDateString(),
-        }));
+        // const querySnapshot = await getDocs(collection(db, 'bookings'));
+        // bookings.value = querySnapshot.docs.map(doc => 
+        // ({ 
+        //     id: doc.id, ...doc.data(),
+        //     createdAt: doc.data().createdAt.toDate().toLocaleDateString(),
+        // }));
         
         // console.log(bookings.value);
         } 
@@ -27,8 +26,8 @@
     
     const deleteBooking = async (id) => {
         try {
-            await deleteDoc(doc(db, 'bookings', id));
-            bookings.value = bookings.value.filter(booking => booking.id !== id);
+            // await deleteDoc(doc(db, 'bookings', id));
+            // bookings.value = bookings.value.filter(booking => booking.id !== id);
         } catch (error) {
             console.error('Error deleting booking:', error);
         }
@@ -40,7 +39,7 @@
         router.push('/editBooking', { params: { bookingId: booking.id } });
     };
     onMounted(() => {
-        fetchBookings();
+        // fetchBookings();
     });
 </script>
 
@@ -84,8 +83,9 @@
                     <td class=" equal-width">{{ booking.tours }}</td>
                     <td class=" equal-width">{{ booking.totalCost }}</td>
                     <td class=" equal-width">
-                        <button class="mx-5" @click="deleteBooking(booking.id)">❌</button>
-                        <button class="mx-5" @click="editBooking(booking)">📝</button>
+                        <button class="mx-5" @click="rejectBooking(booking.id)">❌</button>
+                        <button class="mx-5" @click="confirmBooking(booking.id)">📝</button>
+                        <button class="mx-5" @click="updateBooking(booking.id)">📝</button>
                     </td>
                 </tr>
             </tbody>

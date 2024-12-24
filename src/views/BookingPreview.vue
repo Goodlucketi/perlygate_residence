@@ -1,17 +1,16 @@
 <script setup>
     import { ref, computed } from 'vue';
     import { useRouter } from 'vue-router';
+    import {storeToRefs} from 'pinia';
     import { useBookingStore } from '@/stores/booking';
-
-    import { db } from '@/firebase';
-    import { collection, addDoc } from 'firebase/firestore';
-
 
     const router = useRouter();
     const bookingStore = useBookingStore()
-    const bookingData = bookingStore.bookingData;
+    const {bookingData} = storeToRefs(bookingStore);
+
     const loading = ref(false)
     const errorMessage = ref('')
+
     // Calculate total cost (example calculation, adjust as needed)
     const totalCost = computed(() => {
         
@@ -20,9 +19,9 @@
         if (bookingData.roomType === 'mini-suite') cost += 50000;
         if (bookingData.roomType === 'classic') cost += 30000;
         if (bookingData.roomType === 'classic-plus') cost += 35000;
-        if (bookingData.roomType === 'luxury-single') cost += 40000;
+        // if (bookingData.roomType === 'luxury-single') cost += 40000;
         if (bookingData.roomType === 'luxury-twin') cost += 45000;
-        if (bookingData.roomType === 'perly') cost += 55000;
+        // if (bookingData.roomType === 'perly') cost += 55000;
         if (bookingData.roomType === 'bliss') cost += 60000;
         if (bookingData.roomType === 'marvel-bliss') cost += 70000;
     
@@ -41,27 +40,26 @@
     const confirmBooking = async () => {
         loading.value=true;
         try {
-            await addDoc(collection(db, 'bookings'), {
-            ...bookingData,
-            totalCost: totalCost.value,
-            createdAt: new Date(),
-            });
+            await fetch('http://localhost:3000/api/booking', {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...bookingData.value,
+                totalCost: totalCost.value,
+            }),
+        })
 
-            router.push('/book_success');
+        if(!response.ok){
+            const error = await response.json()
+            throw new Error(error.message || "Failed to Submit Booking... Try Again");  
+        }
+        router.push('/book_success');
 
         } catch (error) {
-            // Handle specific errors
-            if (error.code === 'unavailable') {
-            // Firebase network error
-            errorMessage.value = 'Network error. Please check your internet connection and try again.';
-            } else if (error.code === 'permission-denied') {
-            // Firebase permission error
-            errorMessage.value = 'Permission denied. Please ensure you have the required permissions and try again.';
-            } else {
-            // General error
-            errorMessage.value = 'Failed to submit booking. Please try again.';
-            }
-            console.error('Error submitting booking:', errorMessage.value);
+            errorMessage.value = error.message
+            console.log(error.message);
         }
         finally{
             loading.value=false;
@@ -75,7 +73,7 @@
 
 
 <template>
-    <div class="booking-preview my-36 p-4 mx-auto w-11/12">
+    <div class="booking-preview p-4 mx-auto w-11/12">
         <div class="preview ">
             <h2 class="font-bold text-2xl text-center text-cyan-700 mb-3">Booking Preview</h2>
 
@@ -144,7 +142,7 @@
         <div v-if="loading" class="loading text-sm rounded-full absolute left-[38%] top-[40%] md:top-[45%] md:left-[48%] text-center flex flex-col justify-center" >
             <p >PearlyGates</p>
         </div>
-        <div v-if="errorMessage" class="error-message text-red-600 mt-10">{{ errorMessage }}</div>
+        <div v-if="errorMessage" class="error-message text-center text-red-600 mt-10">{{ errorMessage }}</div>
     </div>
   </template>
   
