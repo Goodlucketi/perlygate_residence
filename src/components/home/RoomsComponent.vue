@@ -6,7 +6,7 @@
     const pricing = {
         classic: 30000,
         classicPlus: 35000,
-        miniSuite: 50000,
+        miniSuite: 55000,
         perlySuite: 55000,
         marvelSuite: 70000,
         luxurySingle: 40000,

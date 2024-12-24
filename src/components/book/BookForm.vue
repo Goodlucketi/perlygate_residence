@@ -115,24 +115,22 @@
                 </div>
             </fieldset>
             
-            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
+            <fieldset class="border text-base p-4 rounded mb-5 text-lg">
                 <!-- Room Preferences -->
                 <legend>Room Preference</legend>
-                <div class="preference-grid md:grid md:grid-cols-3 md:gap-3 items-end ">
+                <div class="preference-grid md:grid md:grid-cols-2 md:gap-3 items-end ">
                     <div class="relative">
                         <span class="text-slate-100 text-xl absolute -left-2 md:-top-5">*</span>
                         <label for="roomType">Room Type</label>
-                        <select v-model="bookingData.roomType" id="roomType" name="roomType" required class="p-1 border text-slate-900 mb-1 rounded w-full">
-                            <option value="">Room Type</option>
-                            <option value="suite">Suite</option>
-                            <option value="mini-suite">Mini Suite</option>
-                            <option value="classic">Classic</option>
-                            <option value="classic-plus">Classic Plus</option>
-                            {/* <option value="luxury-single">Luxury (Single Bed)</option> */}
-                            <option value="luxury-twin">Luxury (Twin Bed)</option>
-                            {/* <option value="perly">Perly Suite</option> */}
-                            <option value="bliss">Blissful Heaven</option>
-                            <option value="marvel-bliss">Marvelous Bliss</option>
+                        <select v-model="bookingData.roomType" id="roomType" name="roomType" required class="p-1 border mb-1 rounded-md w-full">
+                            <option class="bg-slate-900" value="">Room Type</option>
+                            <option class="bg-slate-900" value="suite">Suite</option>
+                            <option class="bg-slate-900" value="mini-suite">Mini Suite</option>
+                            <option class="bg-slate-900" value="classic">Classic</option>
+                            <option class="bg-slate-900" value="classic-plus">Classic Plus</option>
+                            <option class="bg-slate-900" value="luxury-twin">Luxury (Twin Bed)</option>
+                            <option class="bg-slate-900" value="bliss">Blissful Heaven</option>
+                            <option class="bg-slate-900" value="marvel-bliss">Marvelous Suite</option>
                         </select>
                     </div>
                     <div class="relative">
@@ -140,35 +138,9 @@
                         <label for="numRooms">Number of Rooms:</label>
                         <input v-model="bookingData.numRooms" type="number" id="numRooms" name="numRooms" required placeholder="Number of Rooms" class="p-1 border mb-1 rounded w-full">
                     </div>
-                    <div>
-                        <label for="mealPlans" class="block mt-5 mb-0">Meal Plans:</label>
-                        <select v-model="bookingData.mealPlans" id="mealPlans" name="mealPlans" class="p-1 border mb-1 rounded w-full">
-                            <option value="none">None</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="halfBoard">Half Board (Breakfast + Dinner)</option>
-                            <option value="fullBoard">Full Board (Breakfast + Lunch + Dinner)</option>
-                        </select>
-                    </div>
                 </div>                
             </fieldset>
            
-            <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
-                <legend>Additional Services</legend>
-                 <!-- Additional Services -->
-                <div class="shuttle mb-5">
-                    <label for="airportShuttle">Airport Shuttle: </label>
-                    <input v-model="bookingData.airportShuttle" type="checkbox" id="airportShuttle" name="airportShuttle">
-                </div>
-                
-                <div class="md:grid md:grid-cols-2 gap-1">
-                    <textarea v-model="bookingData.tours" id="tours" name="tours" placeholder="Tours and Activities" class="p-1 border mb-1 rounded w-full"></textarea>
-
-                    <textarea v-model="bookingData.specialRequests" id="specialRequests" name="specialRequests" placeholder="Special Requests" class="p-1 border mb-1 rounded w-full"></textarea>
-                </div>
-                
-
-            </fieldset>
-
             <fieldset class="border text-base p-4 rounded-md mb-5 text-lg">
                 <legend>Terms and Conditions</legend>
                  <!-- Terms and Conditions -->
