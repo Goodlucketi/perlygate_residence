@@ -6,15 +6,19 @@
     const loading = ref(false);
     
     const fetchBookings = async () => {
+        loading.value = true; // Set loading to true at the start
         try {
-        // const querySnapshot = await getDocs(collection(db, 'bookings'));
-        // bookings.value = querySnapshot.docs.map(doc => 
-        // ({ 
-        //     id: doc.id, ...doc.data(),
-        //     createdAt: doc.data().createdAt.toDate().toLocaleDateString(),
-        // }));
-        
-        // console.log(bookings.value);
+            const response = await fetch('https://perlygatesresidence.com/backend/perlygates/controllers/bookings.php')
+
+            if(!response.ok){
+                throw new Error(response.error || 'Failed to fetch quizzes.');
+            }
+
+            const data = await response.json()
+            bookings.value = data.clients
+
+            console.log(bookings);
+            
         } 
         catch (error) {
         console.error('Error fetching bookings:', error);
@@ -23,78 +27,86 @@
         loading.value = false;
         }
     };
-    
-    const deleteBooking = async (id) => {
+
+    const confirmBooking = async (id) =>{
         try {
-            // await deleteDoc(doc(db, 'bookings', id));
-            // bookings.value = bookings.value.filter(booking => booking.id !== id);
+            console.log("Booking Confirmed")
+        } catch (error) {
+            console.error("Can't confirm booking now, Please try again", error)
+        }
+    }
+    
+    const rejectBooking = async (id) => {
+        try {
+           console.log("Booking Deleted");
+           
         } catch (error) {
             console.error('Error deleting booking:', error);
         }
         };
 
-    const editBooking = (booking) => {
-        // Implement the edit booking functionality
-        // You may want to navigate to a booking edit page and pass the booking data
-        router.push('/editBooking', { params: { bookingId: booking.id } });
+    const updateBooking = (booking) => {
+        console.log("Booking Edited");
+        ;
     };
     onMounted(() => {
-        // fetchBookings();
+        fetchBookings();
     });
 </script>
 
 <template>
-    <main class="p-4 mx-auto overflow-auto">
-        <div v-if="loading">
-            <div class="loading text-sm text-center flex flex-col justify-center">PearlyGates</div>
+    <main class="p-4 w-11/12 mx-auto">
+        <h2 class="text-3xl font-bold my-5 py-10 text-center ">Booking List</h2>
+        <div class="mx-auto overflow-auto">
+            <div v-if="loading">
+                <div class="loading text-sm text-center flex flex-col justify-center">PearlyGates</div>
+            </div>
+            
+            <table class="border-collapse" v-else >
+                <thead>
+                    <th class="">S/N </th>
+                    <th class=" equal-width">Client Name</th>
+                    <th class=" equal-width">Email</th>
+                    <th class=" equal-width">Phone</th>
+                    <th class=" equal-width">Room Type</th>
+                    <th class=" equal-width">Number of Rooms</th>
+                    <th class=" equal-width">Guests</th>
+                    <th class=" equal-width">Check In</th>
+                    <th class=" equal-width">Check Out</th>
+                    <th class=" equal-width">Booking Date</th>
+                    <th class=" equal-width">Total Cost</th>
+                    <th class=" equal-width">Action</th>
+                </thead>
+                <tbody>
+                    <tr v-for= "booking, index in bookings" :key="booking.id">
+                        <td>{{ index + 1 }}</td>
+                        <td class=" equal-width">{{ booking.fullname }}</td>
+                        <td class=" equal-width">{{ booking.email }}</td>
+                        <td class=" equal-width">{{ booking.phone }}</td>
+                        <td class=" equal-width">{{ booking.room_type }}</td>
+                        <td class=" equal-width">{{ booking.num_of_rooms }}</td>
+                        <td class=" equal-width">{{ booking.guests }}</td>
+                        <td class=" equal-width">{{ booking.check_in }}</td>
+                        <td class=" equal-width">{{ booking.check_out }}</td>
+                        <td class=" equal-width">{{ booking.book_date }}</td>
+                        <td class=" equal-width">{{ booking.total_cost }}</td>
+                        <td class=" equal-width">
+                            <button class="mx-5" title="Reject Booking" @click="rejectBooking(booking.id)">❌</button>
+                            <button class="mx-5" title="Confirm Booking" @click="confirmBooking(booking.id)">✔</button>
+                            <button class="mx-5" title="Update Booking" @click="updateBooking(booking.id)">📝</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="border-collapse" v-else >
-            <thead>
-                <th class=" equal-width">Client Name</th>
-                <th class=" equal-width">Email</th>
-                <th class=" equal-width">Phone</th>
-                <th class=" equal-width">Room Type</th>
-                <th class=" equal-width">Number of Rooms</th>
-                <th class=" equal-width">Guests</th>
-                <th class=" equal-width">Meal Plan</th>
-                <th class=" equal-width">Check In</th>
-                <th class=" equal-width">Check Out</th>
-                <th class=" equal-width">Booking Date Plan</th>
-                <th class=" equal-width">Airport Shuttle</th>
-                <th class=" equal-width">Special Requests</th>
-                <th class=" equal-width">Tours</th>
-                <th class=" equal-width">Total Cost</th>
-                <th class=" equal-width">Action</th>
-            </thead>
-            <tbody>
-                <tr v-for="booking in bookings" :key="booking.id">
-                    <td class=" equal-width">{{ booking.fullName }}</td>
-                    <td class=" equal-width">{{ booking.email }}</td>
-                    <td class=" equal-width">{{ booking.phone }}</td>
-                    <td class=" equal-width">{{ booking.roomType }}</td>
-                    <td class=" equal-width">{{ booking.numRooms }}</td>
-                    <td class=" equal-width">{{ booking.guests }}</td>
-                    <td class=" equal-width">{{ booking.mealPlans }}</td>
-                    <td class=" equal-width">{{ booking.checkIn }}</td>
-                    <td class=" equal-width">{{ booking.checkOut }}</td>
-                    <td class=" equal-width">{{ booking.createdAt }}</td>
-                    <td class=" equal-width">{{ booking.airportShuttle }}</td>
-                    <td class=" equal-width">{{ booking.specialRequests }}</td>
-                    <td class=" equal-width">{{ booking.tours }}</td>
-                    <td class=" equal-width">{{ booking.totalCost }}</td>
-                    <td class=" equal-width">
-                        <button class="mx-5" @click="rejectBooking(booking.id)">❌</button>
-                        <button class="mx-5" @click="confirmBooking(booking.id)">📝</button>
-                        <button class="mx-5" @click="updateBooking(booking.id)">📝</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </main>
 </template>
 <style scoped>
     tr:nth-child(odd){
         background: rgb(131, 162, 182);
+    }
+    td:nth-child(odd){
+        background: rgb(207, 226, 240);
     }
   
     .loading{
@@ -112,7 +124,7 @@
         white-space: nowrap;
         text-align: left;
         padding: 5px 10px;
-        border: 1px solid rgba(182, 175, 175, 0.295);
+        /* border: 1px solid rgba(182, 175, 175, 0.295); */
     }
 
     @keyframes loading {

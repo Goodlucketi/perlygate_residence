@@ -14,7 +14,7 @@
             <h2 class="text-center text-5xl font-sans tracking-widest text-cyan-950">ROOMS</h2>
             <hr class="my-10 md:my-20 ">
             <div class="rooms-views md:my-16">
-                <div class="room md:flex justify-center gap-5 items-center my-5">
+                <!-- <div class="room md:flex justify-center gap-5 items-center my-5">
                     <div class="room-img md:w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000">
                         <img src="../../assets/pearlygates/luxury.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
                     </div>
@@ -26,11 +26,11 @@
                     </div>
                 </div>
 
-                <hr class="my-10">
+                <hr class="my-10"> -->
 
                 <div class="room md:flex justify-center gap-5 flex-row-reverse items-center my-5">
                     <div class="room-img md:w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000">
-                        <img src="../../assets/pearlygates/suite.webp" alt="Luxury" class="rounded-xl h-80 object-cover" >
+                        <img src="../../assets/pearlygates/suite.webp" alt="Suite" class="rounded-xl h-80 object-cover" >
                     </div>
                     <div class="room-txt md:w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Suite</p>
@@ -44,7 +44,7 @@
 
                 <div class="room md:flex justify-center gap-5 items-center my-5">
                     <div class="room-img md:w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000">
-                        <img src="../../assets/pearlygates/Mini-suite.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
+                        <img src="../../assets/pearlygates/Mini-suite.webp" alt="Mini Suite" class="rounded-xl h-80 object-cover">
                     </div>
                     <div class="room-txt md:w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Mini Suite</p>
@@ -57,7 +57,7 @@
 
                 <div class="room md:flex justify-center gap-5 flex-row-reverse items-center my-5">
                     <div class="room-img md:w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000">
-                        <img src="../../assets/pearlygates/classic-plus.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
+                        <img src="../../assets/pearlygates/classic-plus.webp" alt="Classic Plus" class="rounded-xl h-80 object-cover">
                     </div>
                     <div class="room-txt md:w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Classic Plus</p>
@@ -71,7 +71,7 @@
 
                 <div class="room md:flex justify-center gap-5 items-center my-5">
                     <div class="room-img md:w-5/12 p-2" data-aos="fade-right" data-aos-duration="2000">
-                        <img src="../../assets/pearlygates/classic.webp" alt="Luxury" class="rounded-xl h-80 object-cover">
+                        <img src="../../assets/pearlygates/classic.webp" alt="Classic" class="rounded-xl h-80 object-cover">
                     </div>
                     <div class="room-txt md:w-5/12 p-2" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
                         <p class="p-2 font-bold text-2xl text-cyan-950">Classic</p>

@@ -19,10 +19,6 @@
         guests: 1,
         roomType: '',
         numRooms: 1,
-        specialRequests: '',
-        airportShuttle: false,
-        mealPlans: 'none',
-        tours: '',
         acceptTerms: false,
         acceptPrivacy: false,
     })

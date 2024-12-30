@@ -12,19 +12,20 @@
     const errorMessage = ref('')
 
     // Calculate total cost (example calculation, adjust as needed)
+    const days = (new Date(bookingData.value.checkOut) - new Date(bookingData.value.checkIn)) / (1000 * 60 * 60 * 24);
     const totalCost = computed(() => {
         
         let cost = 0;
-        if (bookingData.roomType === 'suite') cost += 65000;
-        if (bookingData.roomType === 'mini-suite') cost += 55000;
-        if (bookingData.roomType === 'classic') cost += 30000;
-        if (bookingData.roomType === 'classic-plus') cost += 35000;
-        if (bookingData.roomType === 'luxury-twin') cost += 45000;
-        if (bookingData.roomType === 'bliss') cost += 60000;
-        if (bookingData.roomType === 'marvel-suite') cost += 70000;
+        if (bookingData.value.roomType === 'suite') cost += 65000;
+        if (bookingData.value.roomType === 'mini-suite') cost += 55000;
+        if (bookingData.value.roomType === 'classic') cost += 30000;
+        if (bookingData.value.roomType === 'classic-plus') cost += 35000;
+        if (bookingData.value.roomType === 'luxury-twin') cost += 45000;
+        if (bookingData.value.roomType === 'bliss') cost += 60000;
+        if (bookingData.value.roomType === 'marvel-suite') cost += 70000;
     
-        cost *= bookingData.numRooms;
-        const days = (new Date(bookingData.checkOut) - new Date(bookingData.checkIn)) / (1000 * 60 * 60 * 24);
+        cost *= bookingData.value.numRooms;
+        
         cost *= days;
 
         return cost;
@@ -33,7 +34,7 @@
     const confirmBooking = async () => {
         loading.value=true;
         try {
-            await fetch('http://localhost:3000/api/booking', {
+            const response = await fetch('https://perlygatesresidence.com/backend/perlygates/controllers/client_booking.php', {
             method: "POST",
             headers:{
                 "Content-Type": "application/json"
@@ -48,6 +49,8 @@
             const error = await response.json()
             throw new Error(error.message || "Failed to Submit Booking... Try Again");  
         }
+        const responseData = await response.json()
+        localStorage.setItem('bookingInfo', responseData)
         router.push('/book_success');
 
         } catch (error) {
@@ -104,20 +107,8 @@
                     <td class="p-1 mb-1"> {{ bookingData.numRooms }}</td>
                 </tr>
                 <tr>
-                    <td class="p-1 mb-1"><strong>Special Requests:</strong></td>
-                    <td class="p-1 mb-1"> {{ bookingData.specialRequests }}</td>
-                </tr>
-                <tr>
-                    <td class="p-1 mb-1"><strong>Airport Shuttle:</strong></td>
-                    <td class="p-1 mb-1"> {{ bookingData.airportShuttle }}</td>
-                </tr>
-                <tr>
-                    <td class="p-1 mb-1"><strong>Meal Plans:</strong></td>
-                    <td class="p-1 mb-1"> {{ bookingData.mealPlans }}</td>
-                </tr>
-                <tr>
-                    <td class="p-1 mb-1"><strong>Tours:</strong></td>
-                    <td class="p-1 mb-1"> {{ bookingData.tours }}</td>
+                    <td class="p-1 mb-1"><strong>Number of Days:</strong></td>
+                    <td class="p-1 mb-1"> {{ days }}</td>
                 </tr>
                 <tr>
                     <td class="p-1 mb-1"><strong>Total Cost:</strong></td>

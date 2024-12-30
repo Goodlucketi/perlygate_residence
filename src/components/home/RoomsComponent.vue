@@ -7,9 +7,7 @@
         classic: 30000,
         classicPlus: 35000,
         miniSuite: 55000,
-        perlySuite: 55000,
         marvelSuite: 70000,
-        luxurySingle: 40000,
         blissHeaven: 60000,
         luxuryTwin: 45000,
         suite: 65000,
@@ -51,7 +49,7 @@
                 
             </swiper-slide>
 
-            <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:flex-row-reverse md:w-10/12">
+            <!-- <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:flex-row-reverse md:w-10/12">
                 <div class="img-slide mb-5 md:w-6/12 relative">
                     <img src="../../assets/pearlygates/hotel_77.webp" alt="Hero slider" class=" object-cover rounded-xl h-80">
                     <span class="pricing absolute p-2 text-white bg-orange-700 text-xl rounded top-5 right-5">N {{ pricing.luxurySingle }}</span>
@@ -64,7 +62,7 @@
                     <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
                 </div>
                 
-            </swiper-slide>
+            </swiper-slide> -->
 
             <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:flex-row-reverse md:w-10/12">
                 <div class="img-slide mb-5 md:w-6/12 relative">
@@ -111,7 +109,7 @@
                 
             </swiper-slide>
 
-            <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:w-10/12">
+            <!-- <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:w-10/12">
                 <div class="img-slide mb-5 md:w-6/12 relative">
                     <img src="../../assets/pearlygates/classic.webp" alt="Hero slider" class="object-cover rounded-xl h-80">
                     <span class="pricing absolute p-2 text-white bg-orange-700 text-xl rounded top-5 right-5">N {{ pricing.perlySuite }}</span>
@@ -124,7 +122,7 @@
                     <router-link to="/room_detail" class="rounded-full bg-orange-600 p-4 text-white">LEARN MORE ></router-link>
                 </div>
                 
-            </swiper-slide>
+            </swiper-slide> -->
 
             <swiper-slide class="md:flex md:justify-center md:items-center md:gap-10 md:flex-row-reverse md:w-10/12">
                 <div class="img-slide mb-5 md:w-6/12 relative">
