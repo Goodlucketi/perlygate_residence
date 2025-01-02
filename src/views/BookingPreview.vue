@@ -42,7 +42,9 @@
             body: JSON.stringify({
                 ...bookingData.value,
                 totalCost: totalCost.value,
+                days,
             }),
+            mode: 'cors',
         })
 
         if(!response.ok){

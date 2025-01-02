@@ -66,22 +66,53 @@
         }
     };
 
-    const confirmBooking = async (id) =>{
+    const confirmBooking = async (id) => {
+        if (!confirm('Do you want to confirm this booking?')) return;
+        loading.value = true
         try {
-            console.log("Booking Confirmed")
+            const response = await fetch('https://perlygatesresidence.com/backend/perlygates/controllers/admin_action.php', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, action: 'confirm' }),
+            });
+
+            const result= await response.json()
+
+            if (!response.ok || !result.success) {
+                alert("Booking Confirmed but Email not Sent")
+                throw new Error(result.message || 'Failed to confirm booking.');
+            }
+           // bookings.value = bookings.value.filter((booking) => booking.id !== id);
+            alert('Booking Confirmed');
         } catch (error) {
-            console.error("Can't confirm booking now, Please try again", error)
+            console.error(error);
+            // alert('An error occurred while confirming the booking.');
+        }finally{
+            loading.value=false
         }
-    }
-    
+    };
+
     const rejectBooking = async (id) => {
+        if (!confirm('Do you want to delete this booking?')) return;
         try {
-           console.log("Booking Deleted");
-           
+            const response = await fetch('https://perlygatesresidence.com/backend/perlygates/controllers/admin_action.php', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, action: "delete" }),
+            });
+            const result = await response.json()
+            if (!response.ok || !result.success) {
+                throw new Error(result.message || 'Failed to delete booking.');
+            }
+
+            bookings.value = bookings.value.filter((booking) => booking.id !== id);
+            alert('Booking Deleted');
         } catch (error) {
-            console.error('Error deleting booking:', error);
+            console.error(error);
+            alert('An error occurred while deleting the booking.');
         }
-        };
+    };
+
 
     const updateBooking = (booking) => {
         console.log("Booking Edited");
@@ -97,7 +128,7 @@
         <div class="mb-4">
             <!-- Filter Input -->
             <div class="flex items-center justify-between bg-slate-200 py-2 px-10 rounded-md">
-                <h2 class="text-lg font-bold">PearlyGate Admin</h2>
+                <h2 class="text-lg font-bold">Perly Gate Admin</h2>
                 <input
                     v-model="filterInput"
                     type="text"
@@ -109,7 +140,7 @@
         <div class="mx-auto overflow-x-auto w-[94%]">
             <h2 class="font-bold text-xl text-center text-slate-800 p-2">Booking List</h2>
             <div v-if="loading">
-                <div class="loading text-sm text-center flex flex-col justify-center">PearlyGates</div>
+                <div class="loading text-sm text-center flex flex-col justify-center">Perly Gate</div>
             </div>
 
             <table v-else class="border-collapse border shadow-md rounded-lg">
@@ -152,11 +183,19 @@
                             <span v-if="sortKey === 'checkOut'">{{ sortDirection === 'asc' ? '🔼' : '🔽' }}</span>
                             <span v-else>🔽</span>
                         </th>
+                        <th class="whitespace-nowrap text-left px-4 py-2 text-sm font-medium text-gray-700" @click="sortTable('check_out')">Days
+                            <span v-if="sortKey === 'days'">{{ sortDirection === 'asc' ? '🔼' : '🔽' }}</span>
+                            <span v-else>🔽</span>
+                        </th>
                         <th class="whitespace-nowrap text-center px-4 py-2 text-sm font-medium text-gray-700">Booking Date
                             <span v-if="sorkKey === 'bookDate'">{{ sortDirection === 'asc' ? '🔼' : '🔽' }}</span>
                             <span v-else>🔽</span>
                         </th>
                         <th class="whitespace-nowrap text-center px-4 py-2 text-sm font-medium text-gray-700">Total Cost
+                            <span v-if="sorkKey === 'total'">{{ sortDirection === 'asc' ? '🔼' : '🔽' }}</span>
+                            <span v-else>🔽</span>
+                        </th>
+                        <th class="whitespace-nowrap text-center px-4 py-2 text-sm font-medium text-gray-700">status
                             <span v-if="sorkKey === 'total'">{{ sortDirection === 'asc' ? '🔼' : '🔽' }}</span>
                             <span v-else>🔽</span>
                         </th>
@@ -174,8 +213,10 @@
                         <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.guests }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.check_in }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.check_out }}</td>
+                        <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.days }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.book_date }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.total_cost }}</td>
+                        <td class="whitespace-nowrap px-4 py-2 text-sm">{{ booking.status.toUpperCase() }}</td>
                         <td class="whitespace-nowrap px-4 py-2 text-sm">
                             <button class="mx-5" title="Reject Booking" @click="rejectBooking(booking.id)">❌</button>
                             <button class="mx-5" title="Confirm Booking" @click="confirmBooking(booking.id)">✔</button>
